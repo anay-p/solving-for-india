@@ -9,7 +9,7 @@ import { Chart2 } from "./Chart2";
 import { Chartx } from "./Chart";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
-export const data = {
+const data = {
   labels: ["Calories Burn", "Protein", "Carbs"],
   datasets: [
     {
@@ -25,44 +25,94 @@ export const data = {
         "rgba(54, 162, 235, 1)",
         "rgba(255, 206, 86, 1)",
       ],
-      borderWidth: 0.5,
+      borderWidth: 2,
     },
   ],
+};
+
+const options = {
+  scales: {
+    yAxes: [
+      {
+        ticks: {
+          beginAtZero: true,
+        },
+      },
+    ],
+  },
+  plugins: {
+    legend: {
+      display: true,
+      labels: {
+        color: "white",
+        fontSize: "16px",
+        fontWeight: "bold",
+      },
+    },
+  },
 };
 
 const Dashboard = () => {
   return (
     <div class="main">
+      <h1>Dashboard</h1>
       <div className="headdash">
         <div className="overview">
-          <Card border="danger" style={{ width: "18rem", height: "22rem" }}>
-            <Card.Header>Overview</Card.Header>
+          <Card border="danger" style={{ width: "20rem", height: "22rem" }}>
+            <Card.Header
+              style={{
+                fontSize: "20px",
+                paddingTop: "5px",
+                textAlign: "center",
+                textDecoration: "underline",
+              }}
+            >
+              Overview
+            </Card.Header>
             <Card.Body>
               <Card.Text>
-                <Doughnut data={data} />
+                <Doughnut data={data} options={options} />
               </Card.Text>
             </Card.Body>
           </Card>
         </div>
         <div className="activity">
-          <Card border="danger" style={{ width: "21rem", height: "22rem" }}>
-            <Card.Header>Today's Activity</Card.Header>
+          <Card border="danger" style={{ width: "22rem", height: "22rem" }}>
+            <Card.Header
+              style={{
+                fontSize: "20px",
+                paddingTop: "5px",
+                textAlign: "center",
+                textDecoration: "underline",
+              }}
+            >
+              Today's Activity
+            </Card.Header>
             <Card.Body className="dashbody">
-              <Card.Title></Card.Title>
               <Card.Text>
-                <Button className="sets" variant="primary">
+                <Button
+                  className="sets"
+                  variant="primary"
+                  style={{ width: "80px" }}
+                >
                   <h5>1.2 Hr</h5>
                   <p>Per Day</p>
                   <p>Gym</p>
                 </Button>
-              </Card.Text>
-              <Card.Text>
-                <Button className="sets" variant="danger">
+                <Button
+                  className="sets"
+                  variant="danger"
+                  style={{ width: "80px" }}
+                >
                   <h5>5230</h5>
-                  <p>Sets/Week</p>
+                  <p>Sets</p>
                   <p>Quads</p>
                 </Button>
-                <Button className="sets" variant="success">
+                <Button
+                  className="sets"
+                  variant="success"
+                  style={{ width: "80px" }}
+                >
                   <h5>1.4 Hr</h5>
                   <p>Per Day</p>
                   <p>Cardio</p>
@@ -72,11 +122,26 @@ const Dashboard = () => {
           </Card>
         </div>
         <div className="workouts">
-          <Card border="danger" style={{ width: "18rem", height: "22rem" }}>
-            <Card.Header>Recommended Activity</Card.Header>
-            <Card.Body>
-              <Card.Title></Card.Title>
-              <Card.Text>
+          <Card border="danger" style={{ width: "22rem", height: "22rem" }}>
+            <Card.Header
+              style={{
+                fontSize: "20px",
+                paddingTop: "5px",
+                textAlign: "center",
+                textDecoration: "underline",
+              }}
+            >
+              Recommended Activity
+            </Card.Header>
+            <Card.Body style={{ paddingTop: "2rem", textAlign: "center" }}>
+              {/* <Card.Title></Card.Title> */}
+              <Card.Text
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "20px",
+                }}
+              >
                 <div className="recc">
                   <h5>Squats</h5>
                   <p>15 sets</p>
@@ -101,7 +166,16 @@ const Dashboard = () => {
 
       <div className="Tracker">
         <Card border="primary" style={{ width: "40%" }}>
-          <Card.Header>Activity Tracker</Card.Header>
+          <Card.Header
+            style={{
+              fontSize: "20px",
+              paddingTop: "5px",
+              textAlign: "center",
+              textDecoration: "underline",
+            }}
+          >
+            Activity Tracker
+          </Card.Header>
           <Card.Body>
             {/* <Card.Title>Primary Card Title</Card.Title> */}
             <Card.Text>
@@ -110,7 +184,16 @@ const Dashboard = () => {
           </Card.Body>
         </Card>
         <Card border="primary" style={{ width: "40%" }}>
-          <Card.Header>Weight Gain/Loss</Card.Header>
+          <Card.Header
+            style={{
+              fontSize: "20px",
+              paddingTop: "5px",
+              textAlign: "center",
+              textDecoration: "underline",
+            }}
+          >
+            Weight Gain/Loss
+          </Card.Header>
           <Card.Body>
             {/* <Card.Title>Primary Card Title</Card.Title> */}
             <Card.Text>
