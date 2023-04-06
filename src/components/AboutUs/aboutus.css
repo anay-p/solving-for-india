@@ -1,0 +1,37 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+  padding-top: 50px;
+}
+h1 {
+  text-align: left;
+  text-decoration: underline;
+  font-size: xx-large;
+  color: #f00;
+}
+
+.aboutus {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  /* padding: 5%; */
+  /* height: 400px; */
+}
+
+.textContainer {
+  text-align: center;
+  padding: 40px;
+  border-radius: 10px;
+  width: 45%;
+  font-size: large;
+}
+
+.imageContainer img {
+  border: 1px solid #f00;
+  border-radius: 10px;
+  width: 500px;
+}
