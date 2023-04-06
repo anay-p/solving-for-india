@@ -4,6 +4,7 @@ import HeroPage from "./components/HeroSection/HeroSection";
 import Dashboard from "./components/User/Dashboard";
 import { Router, Routes, Route } from "react-router";
 import AboutUs from "./components/AboutUs/AboutUs";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <HeroPage /> */}
       {/* <Dashboard /> */}
       <AboutUs />
+      <Footer />
     </div>
   );
 }
