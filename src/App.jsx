@@ -1,10 +1,19 @@
-import { useState } from "react";
 import "./App.css";
+import NavbarComp from "./components/Navbar/Navbar";
+import HeroPage from "./components/HeroSection/HeroSection";
+import Dashboard from "./components/User/Dashboard";
+import { Router, Routes, Route } from "react-router";
+import AboutUs from "./components/AboutUs/AboutUs";
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  return <div className="App">Hello World</div>;
+  return (
+    <div className="App">
+      {/* <NavbarComp />
+      <HeroPage /> */}
+      {/* <Dashboard /> */}
+      <AboutUs />
+    </div>
+  );
 }
 
 export default App;

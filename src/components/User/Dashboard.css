@@ -1,0 +1,25 @@
+.main{
+    min-height: 70vh;
+    width: 100%;
+    padding: 5rem;
+}
+.sets{
+    height:15rem;
+    margin-left:5px;
+}
+.dashbody{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.headdash{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.Tracker{
+    margin-top: 5rem;
+   display: flex;
+   flex-direction: row;
+    justify-content: space-evenly;
+}

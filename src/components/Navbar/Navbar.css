@@ -1,0 +1,41 @@
+.Navmain {
+  backdrop-filter: blur(5px) saturate(196%);
+  -webkit-backdrop-filter: blur(5px) saturate(196%);
+  position: fixed;
+  width: 100%;
+  background-size: auto;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+.heroicon {
+  width: 4rem;
+  /* height: 2rem; */
+}
+
+.navlinks {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.linkText {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.button3 {
+  font-size: large;
+  font-weight: 600;
+  padding: 14px 20px 14px 20px;
+  border-radius: 8px;
+  background-color: rgb(215, 0, 0);
+}
