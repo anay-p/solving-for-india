@@ -54,81 +54,115 @@ const options = {
 
 const Dashboard = () => {
   return (
+    // <div className="sectioncontainer">
     <div class="main">
-      <h1>Dashboard</h1>
-      <div className="headdash">
-        <div className="overview">
-          <Card border="danger" style={{ width: "20rem", height: "22rem" }}>
-            <Card.Header
-              style={{
-                fontSize: "20px",
-                paddingTop: "5px",
-                textAlign: "center",
-                textDecoration: "underline",
-              }}
-            >
-              Overview
-            </Card.Header>
-            <Card.Body>
-              <Card.Text>
-                <Doughnut data={data} options={options} />
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </div>
-        <div className="activity">
-          <Card border="danger" style={{ width: "22rem", height: "22rem" }}>
-            <Card.Header
-              style={{
-                fontSize: "20px",
-                paddingTop: "5px",
-                textAlign: "center",
-                textDecoration: "underline",
-              }}
-            >
-              Today's Activity
-            </Card.Header>
-            <Card.Body className="dashbody">
-              <Card.Text>
-                <Button
-                  className="sets"
-                  variant="primary"
-                  style={{ width: "80px" }}
-                >
-                  <h5>1.2 Hr</h5>
-                  <p>Per Day</p>
-                  <p>Gym</p>
-                </Button>
-                <Button
-                  className="sets"
-                  variant="danger"
-                  style={{ width: "80px" }}
-                >
-                  <h5>5230</h5>
-                  <p>Sets</p>
-                  <p>Quads</p>
-                </Button>
-                <Button
-                  className="sets"
-                  variant="success"
-                  style={{ width: "80px" }}
-                >
-                  <h5>1.4 Hr</h5>
-                  <p>Per Day</p>
-                  <p>Cardio</p>
-                </Button>
-              </Card.Text>
-            </Card.Body>
-          </Card>
+      <div
+        className="sidebar"
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          // justifyContent: "center",
+        }}
+      >
+        <h1 style={{ top: "0" }}>Profile</h1>
+        <img
+          src="https://res.cloudinary.com/dhnkuonev/image/upload/v1679906502/11602236_21004063_c6g3he-removebg-preview_ntr0cu.png"
+          alt=""
+          style={{
+            border: "1.5px solid #f00",
+            borderRadius: "50%",
+            height: "100px",
+            width: "100px",
+          }}
+        />
+        <h2>Ashutosh Rath</h2>
+        <h3>Age: 20</h3>
+        <h3>Weight: 75 kg</h3>
+        <h3>Height: 170cm</h3>
+        <h3>BMI: Overweight</h3>
+      </div>
+      <div className="dashboard">
+        <h1
+          style={{ width: "100%", textAlign: "center", marginBottom: "20px" }}
+        >
+          Dashboard
+        </h1>
+        <div className="headdash">
+          <div className="overview">
+            <Card border="danger" style={{ width: "20rem", height: "22rem" }}>
+              <Card.Header
+                style={{
+                  fontSize: "20px",
+                  paddingTop: "5px",
+                  textAlign: "center",
+                  textDecoration: "underline",
+                }}
+              >
+                Overview
+              </Card.Header>
+              <Card.Body>
+                <Card.Text>
+                  <Doughnut data={data} options={options} />
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </div>
+          <div className="activity">
+            <Card border="danger" style={{ width: "22rem", height: "22rem" }}>
+              <Card.Header
+                style={{
+                  fontSize: "20px",
+                  paddingTop: "5px",
+                  textAlign: "center",
+                  textDecoration: "underline",
+                }}
+              >
+                Today's Activity
+              </Card.Header>
+              <Card.Body className="dashbody">
+                <Card.Text>
+                  <Button
+                    className="sets"
+                    variant="primary"
+                    style={{ width: "80px" }}
+                  >
+                    <h5>1.2 Hr</h5>
+                    <p>Per Day</p>
+                    <p>Gym</p>
+                  </Button>
+                  <Button
+                    className="sets"
+                    variant="danger"
+                    style={{ width: "80px" }}
+                  >
+                    <h5>5230</h5>
+                    <p>Sets</p>
+                    <p>Quads</p>
+                  </Button>
+                  <Button
+                    className="sets"
+                    variant="success"
+                    style={{ width: "80px" }}
+                  >
+                    <h5>1.4 Hr</h5>
+                    <p>Per Day</p>
+                    <p>Cardio</p>
+                  </Button>
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </div>
         </div>
         <div className="workouts">
-          <Card border="danger" style={{ width: "22rem", height: "22rem" }}>
+          <Card border="danger" style={{}}>
             <Card.Header
               style={{
                 fontSize: "20px",
                 paddingTop: "5px",
                 textAlign: "center",
                 textDecoration: "underline",
+                margin: "auto",
               }}
             >
               Recommended Activity
@@ -162,46 +196,47 @@ const Dashboard = () => {
             </Card.Body>
           </Card>
         </div>
-      </div>
 
-      <div className="Tracker">
-        <Card border="primary" style={{ width: "40%" }}>
-          <Card.Header
-            style={{
-              fontSize: "20px",
-              paddingTop: "5px",
-              textAlign: "center",
-              textDecoration: "underline",
-            }}
-          >
-            Activity Tracker
-          </Card.Header>
-          <Card.Body>
-            {/* <Card.Title>Primary Card Title</Card.Title> */}
-            <Card.Text>
-              <Chart2 />
-            </Card.Text>
-          </Card.Body>
-        </Card>
-        <Card border="primary" style={{ width: "40%" }}>
-          <Card.Header
-            style={{
-              fontSize: "20px",
-              paddingTop: "5px",
-              textAlign: "center",
-              textDecoration: "underline",
-            }}
-          >
-            Weight Gain/Loss
-          </Card.Header>
-          <Card.Body>
-            {/* <Card.Title>Primary Card Title</Card.Title> */}
-            <Card.Text>
-              <Chartx />
-            </Card.Text>
-          </Card.Body>
-        </Card>
+        <div className="Tracker">
+          <Card border="primary" style={{ width: "40%" }}>
+            <Card.Header
+              style={{
+                fontSize: "20px",
+                paddingTop: "5px",
+                textAlign: "center",
+                textDecoration: "underline",
+              }}
+            >
+              Activity Tracker
+            </Card.Header>
+            <Card.Body>
+              {/* <Card.Title>Primary Card Title</Card.Title> */}
+              <Card.Text>
+                <Chart2 />
+              </Card.Text>
+            </Card.Body>
+          </Card>
+          <Card border="primary" style={{ width: "40%" }}>
+            <Card.Header
+              style={{
+                fontSize: "20px",
+                paddingTop: "5px",
+                textAlign: "center",
+                textDecoration: "underline",
+              }}
+            >
+              Weight Gain/Loss
+            </Card.Header>
+            <Card.Body>
+              {/* <Card.Title>Primary Card Title</Card.Title> */}
+              <Card.Text>
+                <Chartx />
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </div>
       </div>
+      {/* </div> */}
     </div>
   );
 };
