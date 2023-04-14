@@ -9,7 +9,7 @@ const NavbarComp = () => {
     <div className="Navmain">
       <Navbar bg="dark" variant="dark">
         <Container className="container">
-          <Navbar.Brand className="linkText" href="#home">
+          <Navbar.Brand className="linkText" href="/">
             <img
               src="https://res.cloudinary.com/dhnkuonev/image/upload/v1680687009/Draft2-removebg-preview_mogobu.png"
               alt=""
@@ -17,13 +17,13 @@ const NavbarComp = () => {
             />
           </Navbar.Brand>
           <Nav className="navlinks">
-            <Nav.Link className="linkText" href="#home">
+            <Nav.Link className="linkText" href="/">
               Home
             </Nav.Link>
-            <Nav.Link className="linkText" href="#aboutus">
+            <Nav.Link className="linkText" href="/aboutus">
               About Us
             </Nav.Link>
-            <Nav.Link className="linkText" href="#exercises">
+            <Nav.Link className="linkText" href="/exercises">
               Exercises
             </Nav.Link>
             <Nav.Link href="Sign Up">
