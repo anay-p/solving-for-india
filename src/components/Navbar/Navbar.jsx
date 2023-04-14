@@ -9,14 +9,14 @@ const NavbarComp = () => {
     <div className="Navmain">
       <Navbar bg="dark" variant="dark">
         <Container className="container">
-          <Navbar.Brand className="linkText" href="/">
-            <img
-              src="https://res.cloudinary.com/dhnkuonev/image/upload/v1680687009/Draft2-removebg-preview_mogobu.png"
-              alt=""
-              className="heroicon"
-            />
-          </Navbar.Brand>
           <Nav className="navlinks">
+            <Navbar.Brand className="linkText" href="/">
+              <img
+                src="https://res.cloudinary.com/dhnkuonev/image/upload/v1680687009/Draft2-removebg-preview_mogobu.png"
+                alt=""
+                className="heroicon"
+              />
+            </Navbar.Brand>
             <Nav.Link className="linkText" href="/">
               Home
             </Nav.Link>

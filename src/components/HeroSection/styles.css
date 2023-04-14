@@ -6,7 +6,7 @@
   height: 100vh;
   background-position: center;
   background-size: cover;
-  padding: 2rem 9%;
+  /* padding: 2rem 9%; */
   color: rgb(255, 255, 255);
   font-family: "Nunito", sans-serif;
   display: flex;
@@ -33,6 +33,10 @@
   color: white;
   border-radius: 20px;
   border-color: #f00;
+  transition: all 0.2s ease-in-out;
+}
+.button2:hover {
+  transform: scale(1.1);
 }
 .home {
   padding: 0;
@@ -53,7 +57,7 @@
 }
 
 .content {
-  width: 60rem;
+  /* width: 60rem; */
 }
 
 .content h5 {
@@ -71,6 +75,9 @@
   font-size: 3rem;
   color: #fff;
   padding: 1rem 0;
+}
+.content h1:hover {
+  color: #f00;
 }
 
 .swiper-pagination-bullet {

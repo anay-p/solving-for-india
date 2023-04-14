@@ -1,3 +1,12 @@
-.background{
-    background-color: black;
+.background {
+  background-color: #171111;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.warningtext {
+  color: #f00;
+  font-size: x-large;
 }

@@ -1,17 +1,6 @@
-.excontainer{
-    display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-   position: absolute;
-   margin-right: auto;
-   margin-left: 10%;
-   
-  
- 
-}
-.mainexer{
-  text-align:center;
-  background-image: url(heroimage.gif);
+.mainexer {
+  text-align: center;
+  /* background-image: url(heroimage.gif); */
   height: 100vh;
   background-position: center;
   background-size: cover;
@@ -22,5 +11,32 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
+}
+.excontainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 30px;
+  /* position: absolute; */
+  /* margin-right: auto; */
+  /* margin-left: 10%; */
+}
+
+.exercisecard {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.75);
+  border-radius: 10px;
+  padding: 50px;
+  border: 0px solid #f00;
+  transition: all ease-in-out 0.5s;
+}
+.exercisecard:hover {
+  border: 1px solid #f00;
+  transform: scale(1.05);
+}
+.exercisecard h1 {
+  padding-top: 8px;
   text-align: center;
 }

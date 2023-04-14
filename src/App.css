@@ -7,8 +7,8 @@
 }
 html,
 body {
-  /* background-color: #110f13; */
-  background: linear-gradient(to bottom right, #210d0d, #000000);
+  background-color: #110f13;
+  /* background: linear-gradient(to bottom right, #210d0d, #000000); */
   color: #fff;
   /* color: ; */
 }

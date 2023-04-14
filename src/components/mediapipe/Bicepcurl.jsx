@@ -1,4 +1,4 @@
-import {React,useState} from "react";
+import { React, useState } from "react";
 import { Pose } from "@mediapipe/pose";
 import * as cam from "@mediapipe/camera_utils";
 import Webcam from "react-webcam";
@@ -11,7 +11,7 @@ import pushups from "./pushup.png";
 import squats from "./squats.png";
 import { Link } from "react-router-dom";
 
-import './counter.css'
+import "./counter.css";
 const styles = {
   webcam: {
     position: "absolute",
@@ -41,15 +41,18 @@ const styles = {
     marginLeft: "auto",
     left: 1000,
     right: 0,
-    top: 250,
+    top: 90,
+    padding: 40,
     textAlign: "center",
     width: 400,
     color: "#05386B",
-    background: "black",
+    background: "#FFFFFF",
+    borderRadius: 10,
+    border: "3px solid #f00",
   },
   back: {
-     position: "absolute",
-     display: "hidden",
+    position: "absolute",
+    display: "hidden",
     marginRight: "auto",
     marginLeft: "auto",
     left: 1700,
@@ -63,22 +66,21 @@ const exrInfo = {
     index: [12, 14, 16],
     ul: 150,
     ll: 50,
-    swing: [24,12,14],
-     lls: 35,
-     uls: 180,
+    swing: [24, 12, 14],
+    lls: 35,
+    uls: 180,
   },
-  
 };
 
 let count = 0;
 let dir = 0;
 let angle = 0;
-let swinga=0;
+let swinga = 0;
 let str;
 
 function Bicepcurl(props) {
   //const [exr, setExr] = useState("bicepCurls");
-  const [conf,setConf]=useState(0);
+  const [conf, setConf] = useState(0);
   let imgSource;
   if (props.exercise === "bicepCurls") {
     imgSource = bicepcurls;
@@ -112,8 +114,8 @@ function Bicepcurl(props) {
       //ratios between 0-1, covert them to pixel positions
       const upadatedPos = [];
       const indexArray = exrInfo[props.exercise].index;
-      const swingangle=exrInfo[props.exercise].swing;
-      const swings=[];
+      const swingangle = exrInfo[props.exercise].swing;
+      const swings = [];
       for (let i = 0; i < 3; i += 1) {
         upadatedPos.push({
           x: position[indexArray[i]].x * width,
@@ -127,10 +129,10 @@ function Bicepcurl(props) {
         });
       }
       //console.log(upadatedPos)
-      
+
       angle = Math.round(angleBetweenThreePoints(upadatedPos));
       //console.log("Angle is getting updated ",angle)
-      swinga=Math.round(angleBetweenThreePoints(swings));
+      swinga = Math.round(angleBetweenThreePoints(swings));
       // Count reps
       //0 is down, 1 is up
       if (angle > exrInfo[props.exercise].ul) {
@@ -148,21 +150,19 @@ function Bicepcurl(props) {
           dir = 0;
         }
       }
-      
-       
-        if(swinga>35){
-            setConf(1);
-        }
-        else{
-            setConf(0);
-        }
-        // if(conf==1)
-        // {
-        //     str="Lock elbow in position";
-        // }
-        // else{
-        //     str="";
-        // }
+
+      if (swinga > 35) {
+        setConf(1);
+      } else {
+        setConf(0);
+      }
+      // if(conf==1)
+      // {
+      //     str="Lock elbow in position";
+      // }
+      // else{
+      //     str="";
+      // }
 
       //console.log(count.current)
       const canvasElement = canvasRef.current;
@@ -180,29 +180,29 @@ function Bicepcurl(props) {
         canvasCtx.strokeStyle = "white";
         canvasCtx.stroke();
       }
-    //   for (let i = 0; i < 2; i++) {
-    //     canvasCtx.beginPath();
-    //     canvasCtx.moveTo(swings[i].x, swings[i].y);
-    //     canvasCtx.lineTo(swings[i + 1].x,swings[i + 1].y);
-    //     canvasCtx.lineWidth = 2;
-    //     canvasCtx.strokeStyle = "white";
-    //     canvasCtx.stroke();
-    //   }
+      //   for (let i = 0; i < 2; i++) {
+      //     canvasCtx.beginPath();
+      //     canvasCtx.moveTo(swings[i].x, swings[i].y);
+      //     canvasCtx.lineTo(swings[i + 1].x,swings[i + 1].y);
+      //     canvasCtx.lineWidth = 2;
+      //     canvasCtx.strokeStyle = "white";
+      //     canvasCtx.stroke();
+      //   }
       for (let i = 0; i < 3; i++) {
         canvasCtx.beginPath();
         canvasCtx.arc(upadatedPos[i].x, upadatedPos[i].y, 10, 0, Math.PI * 2);
         canvasCtx.fillStyle = "#AAFF00";
         canvasCtx.fill();
       }
-    //   for (let i = 0; i < 3; i++) {
-    //     canvasCtx.beginPath();
-    //     canvasCtx.arc(swings[i].x,swings[i].y, 10, 0, Math.PI * 2);
-    //     canvasCtx.fillStyle = "#AAFF00";
-    //     canvasCtx.fill();
-    //   }
+      //   for (let i = 0; i < 3; i++) {
+      //     canvasCtx.beginPath();
+      //     canvasCtx.arc(swings[i].x,swings[i].y, 10, 0, Math.PI * 2);
+      //     canvasCtx.fillStyle = "#AAFF00";
+      //     canvasCtx.fill();
+      //   }
       canvasCtx.font = "40px aerial";
       canvasCtx.fillText(angle, upadatedPos[1].x + 10, upadatedPos[1].y + 40);
-    //   canvasCtx.fillText(swinga, swings[1].x + 10, swings[1].y + 40);
+      //   canvasCtx.fillText(swinga, swings[1].x + 10, swings[1].y + 40);
       canvasCtx.restore();
     }
   }
@@ -211,7 +211,7 @@ function Bicepcurl(props) {
     console.log("rendered");
     count = 0;
     dir = 0;
-    
+
     //console.log(count.current)
     //console.log("rendered counter")
     const pose = new Pose({
@@ -235,7 +235,7 @@ function Bicepcurl(props) {
       camera = new cam.Camera(webcamRef.current.video, {
         onFrame: async () => {
           countTextbox.current.value = count;
-          
+
           await pose.send({ image: webcamRef.current.video });
         },
         width: 640,
@@ -243,7 +243,7 @@ function Bicepcurl(props) {
       });
       camera.start();
     }
-  },[]);
+  }, []);
   //console.log(props)
   function resetCount() {
     console.log("clicked");
@@ -253,9 +253,9 @@ function Bicepcurl(props) {
 
   return (
     <div className="background">
-      <div style={styles.selectBox} >
+      <div style={styles.selectBox}>
         <h1>Workout</h1>
-        <img src={bicepcurls} width="300" alternate="bicepimage"/>
+        <img src={bicepcurls} width="300" alternate="bicepimage" />
         <br></br>
         <div style={{ top: 50 }}>
           <h1>Count</h1>
@@ -268,12 +268,12 @@ function Bicepcurl(props) {
           />
           <br></br>
           {/* <input value={str} style={{color: "black"}}/> */}
-          <div>{
-            conf?<h5>Lock Shoulder in Position</h5>:<h5></h5>}
+          <div className="warningtext">
+            {conf ? <h5>Lock Shoulder in Position</h5> : <h5></h5>}
           </div>
           <br></br>
           <Button
-            style={{ top: 15 }}
+            style={{ top: 150 }}
             size="large"
             variant="contained"
             color="primary"

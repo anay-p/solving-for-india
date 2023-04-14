@@ -1,30 +1,31 @@
 .Navmain {
   backdrop-filter: blur(5px) saturate(196%);
   -webkit-backdrop-filter: blur(5px) saturate(196%);
-  /* position: fixed; */
-  width: 100%;
+  position: fixed;
+  /* width: auto; */
   /* background-size: auto; */
-  height:0rem;
-  top:0;
-}
-.container {
+  height: 0rem;
+  top: 6%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 40px;
+}
+.container {
+  margin-bottom: 5%;
+  gap: 100px;
 }
 .heroicon {
   width: 4rem;
-  /* height: 2rem; */
 }
 
 .navlinks {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  gap: 40px;
+  gap: 100px;
+  padding: 10px;
 }
 
 .linkText {
@@ -32,6 +33,9 @@
   color: #fff;
   font-size: 1.5rem;
   font-weight: 500;
+}
+.linkText:hover {
+  color: #f00;
 }
 
 .button3 {
