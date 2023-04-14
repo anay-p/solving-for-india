@@ -1,8 +1,12 @@
 import React from "react";
 import "./styles.css";
+import NavbarComp from "../Navbar/Navbar";
+import Footer from "../Footer/Footer";
 
 const HeroPage = () => {
   return (
+    <div>
+    <NavbarComp/>
     <div className="herosection">
       <div className="CoverPage">
         <div className="content">
@@ -12,6 +16,8 @@ const HeroPage = () => {
           <div className="button">Getting Started</div>
         </div>
       </div>
+    </div>
+    {/* <Footer/> */}
     </div>
   );
 };

@@ -1,9 +1,11 @@
 .Navmain {
   backdrop-filter: blur(5px) saturate(196%);
   -webkit-backdrop-filter: blur(5px) saturate(196%);
-  position: fixed;
+  /* position: fixed; */
   width: 100%;
-  background-size: auto;
+  /* background-size: auto; */
+  height:0rem;
+  top:0;
 }
 .container {
   display: flex;

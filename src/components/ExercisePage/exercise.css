@@ -1,0 +1,26 @@
+.excontainer{
+    display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+   position: absolute;
+   margin-right: auto;
+   margin-left: 10%;
+   
+  
+ 
+}
+.mainexer{
+  text-align:center;
+  background-image: url(heroimage.gif);
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+  padding: 2rem 9%;
+  color: rgb(255, 255, 255);
+  font-family: "Nunito", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
