@@ -2,6 +2,7 @@ import React from "react";
 import "./styles.css";
 import NavbarComp from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
+import Chat from "../../Chatbot/Chat";
 
 const HeroPage = () => {
   return (
@@ -18,6 +19,7 @@ const HeroPage = () => {
       </div>
     </div>
     {/* <Footer/> */}
+    <Chat/>
     </div>
   );
 };
