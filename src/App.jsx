@@ -15,7 +15,7 @@ import { useUserMedia } from "./components/mediapipe/getUSerMedia";
 
 
 function App() {
-
+  const { stream, error } = useUserMedia({ audio: true, video: true });
   return (
     <BrowserRouter>
     <div className="App">
