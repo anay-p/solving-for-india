@@ -6,7 +6,7 @@ import { useRef, useEffect } from "react";
 import angleBetweenThreePoints from "./angle";
 import Button from "react-bootstrap/Button";
 import bicepcurls from "./bicepcurls.png";
-import shoulderpress from "./crunches.png";
+import shoulderpress from "./ShoulderPress.png";
 import pushups from "./pushup.png";
 import squats from "./squats.png";
 import { Link } from "react-router-dom";

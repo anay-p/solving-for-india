@@ -8,7 +8,7 @@ const NavbarComp = () => {
   return (
     <div className="Navmain">
       <Navbar bg="dark" variant="dark">
-        <Container className="container">
+        <Container className="containernav">
           <Nav className="navlinks">
             <Navbar.Brand className="linkText" href="/">
               <img

@@ -5,8 +5,8 @@ import Webcam from "react-webcam";
 import { useRef, useEffect } from "react";
 import angleBetweenThreePoints from "./angle";
 import Button from "react-bootstrap/Button";
-import bicepcurls from "./bicepcurls.png";
-import crunches from "./crunches.png";
+import bicepcurls from "./bicepCurl.png";
+
 import pushups from "./pushup.png";
 import squats from "./squats.png";
 import { Link } from "react-router-dom";
@@ -88,9 +88,7 @@ function Bicepcurl(props) {
     imgSource = squats;
   } else if (props.exercise === "pushups") {
     imgSource = pushups;
-  } else if (props.exercise === "crunches") {
-    imgSource = crunches;
-  }
+  } 
 
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
