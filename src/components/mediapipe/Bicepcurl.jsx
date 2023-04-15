@@ -5,7 +5,7 @@ import Webcam from "react-webcam";
 import { useRef, useEffect } from "react";
 import angleBetweenThreePoints from "./angle";
 import Button from "react-bootstrap/Button";
-import bicepcurls from "./bicepCurl.png";
+import bicepcurls from "./BicepCurl.png";
 
 import pushups from "./pushup.png";
 import squats from "./squats.png";
