@@ -1,4 +1,4 @@
-import {React} from "react";
+import { React } from "react";
 import { Pose } from "@mediapipe/pose";
 import * as cam from "@mediapipe/camera_utils";
 import Webcam from "react-webcam";
@@ -10,60 +10,62 @@ import shoulderpress from "./crunches.png";
 import pushups from "./pushup.png";
 import squats from "./squats.png";
 import { Link } from "react-router-dom";
-import './counter.css'
+import "./counter.css";
 const styles = {
-    webcam: {
-        position: "absolute",
-        marginRight: "auto",
-        marginLeft: "auto",
-        left: 0,
-        right: 800,
-        top: 10,
-        textAlign: "center",
-        zIndex: 9,
-        width: 960,
-        height: 720,
-      },
-      countBox: {
-        position: "absolute",
-        marginRight: "auto",
-        marginLeft: "auto",
-        left: 1100,
-        right: 0,
-        top: 600,
-        width: 400,
-        height: 100,
-      },
-      selectBox: {
-        position: "absolute",
-        marginRight: "auto",
-        marginLeft: "auto",
-        left: 1000,
-        right: 0,
-        top: 250,
-        textAlign: "center",
-        width: 400,
-        color: "#05386B",
-        background: "black",
-      },
-      back: {
-         position: "absolute",
-         display: "hidden",
-        marginRight: "auto",
-        marginLeft: "auto",
-        left: 1700,
-        right: 0,
-        top: 850,
-      },
-    };
+  webcam: {
+    position: "absolute",
+    marginRight: "auto",
+    marginLeft: "auto",
+    left: 0,
+    right: 800,
+    top: 10,
+    textAlign: "center",
+    zIndex: 9,
+    width: 960,
+    height: 720,
+  },
+  countBox: {
+    position: "absolute",
+    marginRight: "auto",
+    marginLeft: "auto",
+    left: 1100,
+    right: 0,
+    top: 600,
+    width: 400,
+    height: 100,
+  },
+  selectBox: {
+    position: "absolute",
+    marginRight: "auto",
+    marginLeft: "auto",
+    left: 1000,
+    right: 0,
+    top: 90,
+    padding: 40,
+    textAlign: "center",
+    width: 400,
+    color: "#05386B",
+    background: "#FFFFFF",
+    borderRadius: 10,
+    border: "3px solid #f00",
+  },
+  back: {
+    position: "absolute",
+    display: "hidden",
+    marginRight: "auto",
+    marginLeft: "auto",
+    left: 1700,
+    right: 0,
+    top: 850,
+  },
+};
 
 const exrInfo = {
-
-    shoulderpress: {
-        index: [16, 14, 12],
-        ul: 160,
-        ll: 85,
-      },
+  shoulderpress: {
+    index: [16, 14, 12],
+    ul: 160,
+    ll: 85,
+  },
 };
 
 let count = 0;
@@ -72,7 +74,7 @@ let angle = 0;
 
 function Shoulderpress(props) {
   //const [exr, setExr] = useState("bicepCurls");
-  
+
   let imgSource;
   if (props.exercise === "bicepCurls") {
     imgSource = bicepcurls;
@@ -107,15 +109,15 @@ function Shoulderpress(props) {
       const upadatedPos = [];
       const indexArray = exrInfo[props.exercise].index;
 
-      const hips=[];
-      const ankles=[];
+      const hips = [];
+      const ankles = [];
       for (let i = 0; i < 3; i += 1) {
         upadatedPos.push({
           x: position[indexArray[i]].x * width,
           y: position[indexArray[i]].y * height,
         });
       }
-      
+
       //console.log(upadatedPos)
       angle = Math.round(angleBetweenThreePoints(upadatedPos));
       //console.log("Angle is getting updated ",angle)
@@ -138,7 +140,6 @@ function Shoulderpress(props) {
         }
       }
 
-   
       //console.log(count.current)
       const canvasElement = canvasRef.current;
       const canvasCtx = canvasElement.getContext("2d");
@@ -155,17 +156,17 @@ function Shoulderpress(props) {
         canvasCtx.strokeStyle = "white";
         canvasCtx.stroke();
       }
-      
+
       for (let i = 0; i < 3; i++) {
         canvasCtx.beginPath();
         canvasCtx.arc(upadatedPos[i].x, upadatedPos[i].y, 10, 0, Math.PI * 2);
         canvasCtx.fillStyle = "#AAFF00";
         canvasCtx.fill();
       }
-    
+
       canvasCtx.font = "40px aerial";
       canvasCtx.fillText(angle, upadatedPos[1].x + 10, upadatedPos[1].y + 40);
-      
+
       canvasCtx.restore();
     }
   }
@@ -197,7 +198,7 @@ function Shoulderpress(props) {
       camera = new cam.Camera(webcamRef.current.video, {
         onFrame: async () => {
           countTextbox.current.value = count;
-          
+
           await pose.send({ image: webcamRef.current.video });
         },
         width: 640,
@@ -215,9 +216,9 @@ function Shoulderpress(props) {
 
   return (
     <div className="background">
-      <div style={styles.selectBox} >
+      <div style={styles.selectBox}>
         <h1>Workout</h1>
-        <img src={imgSource} width="300" alternate="bicepimage"/>
+        <img src={imgSource} width="300" alternate="bicepimage" />
         <br></br>
         <div style={{ top: 50 }}>
           <h1>Count</h1>

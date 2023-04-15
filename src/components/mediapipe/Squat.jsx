@@ -1,4 +1,4 @@
-import {React,useState} from "react";
+import { React, useState } from "react";
 import { Pose } from "@mediapipe/pose";
 import * as cam from "@mediapipe/camera_utils";
 import Webcam from "react-webcam";
@@ -10,73 +10,75 @@ import crunches from "./crunches.png";
 import pushups from "./pushup.png";
 import squats from "./squats.png";
 import { Link } from "react-router-dom";
-import './counter.css'
+import "./counter.css";
 const styles = {
-    webcam: {
-        position: "absolute",
-        marginRight: "auto",
-        marginLeft: "auto",
-        left: 0,
-        right: 800,
-        top: 10,
-        textAlign: "center",
-        zIndex: 9,
-        width: 960,
-        height: 720,
-      },
-      countBox: {
-        position: "absolute",
-        marginRight: "auto",
-        marginLeft: "auto",
-        left: 1100,
-        right: 0,
-        top: 600,
-        width: 400,
-        height: 100,
-      },
-      selectBox: {
-        position: "absolute",
-        marginRight: "auto",
-        marginLeft: "auto",
-        left: 1000,
-        right: 0,
-        top: 250,
-        textAlign: "center",
-        width: 400,
-        color: "#05386B",
-        background: "black",
-      },
-      back: {
-         position: "absolute",
-         display: "hidden",
-        marginRight: "auto",
-        marginLeft: "auto",
-        left: 1700,
-        right: 0,
-        top: 850,
-      },
-    };
+  webcam: {
+    position: "absolute",
+    marginRight: "auto",
+    marginLeft: "auto",
+    left: 0,
+    right: 800,
+    top: 10,
+    textAlign: "center",
+    zIndex: 9,
+    width: 960,
+    height: 720,
+  },
+  countBox: {
+    position: "absolute",
+    marginRight: "auto",
+    marginLeft: "auto",
+    left: 1100,
+    right: 0,
+    top: 600,
+    width: 400,
+    height: 100,
+  },
+  selectBox: {
+    position: "absolute",
+    marginRight: "auto",
+    marginLeft: "auto",
+    left: 1000,
+    right: 0,
+    top: 90,
+    padding: 40,
+    textAlign: "center",
+    width: 400,
+    color: "#05386B",
+    background: "#FFFFFF",
+    borderRadius: 10,
+    border: "3px solid #f00",
+  },
+  back: {
+    position: "absolute",
+    display: "hidden",
+    marginRight: "auto",
+    marginLeft: "auto",
+    left: 1700,
+    right: 0,
+    top: 850,
+  },
+};
 
 const exrInfo = {
-
-    squats: {
-        index: [24, 26, 28],
-        ul: 170,
-        ll: 50,
-        ankle:[32,28,26],
-        hip:[26,24,12],
-      },
+  squats: {
+    index: [24, 26, 28],
+    ul: 170,
+    ll: 50,
+    ankle: [32, 28, 26],
+    hip: [26, 24, 12],
+  },
 };
 
 let count = 0;
 let dir = 0;
 let angle = 0;
-let hipa=0;
-let anklea=0;
+let hipa = 0;
+let anklea = 0;
 function Squat(props) {
   //const [exr, setExr] = useState("bicepCurls");
-  const [conf,setConf]=useState(0);
-  const [conf2,setConf2]=useState(0);
+  const [conf, setConf] = useState(0);
+  const [conf2, setConf2] = useState(0);
   let imgSource;
   if (props.exercise === "bicepCurls") {
     imgSource = bicepcurls;
@@ -110,11 +112,11 @@ function Squat(props) {
       //ratios between 0-1, covert them to pixel positions
       const upadatedPos = [];
       const indexArray = exrInfo[props.exercise].index;
-      const hipangle=exrInfo[props.exercise].hip;
-      const ankleangle=exrInfo[props.exercise].ankle;
+      const hipangle = exrInfo[props.exercise].hip;
+      const ankleangle = exrInfo[props.exercise].ankle;
 
-      const hips=[];
-      const ankles=[];
+      const hips = [];
+      const ankles = [];
       for (let i = 0; i < 3; i += 1) {
         upadatedPos.push({
           x: position[indexArray[i]].x * width,
@@ -137,7 +139,7 @@ function Squat(props) {
       angle = Math.round(angleBetweenThreePoints(upadatedPos));
       //console.log("Angle is getting updated ",angle)
       hipa = Math.round(angleBetweenThreePoints(hips));
-      anklea= Math.round(angleBetweenThreePoints(ankles));
+      anklea = Math.round(angleBetweenThreePoints(ankles));
       // Count reps
       //0 is down, 1 is up
       if (angle > exrInfo[props.exercise].ul) {
@@ -156,16 +158,16 @@ function Squat(props) {
         }
       }
 
-      if (anklea<60){
-         setConf(1);
-        }
-      else{
-         setConf(0);
+      if (anklea < 60) {
+        setConf(1);
+      } else {
+        setConf(0);
       }
-  if(hipa<60)
-      {setConf2(1);}
-  else{
-      setConf2(0);}
+      if (hipa < 60) {
+        setConf2(1);
+      } else {
+        setConf2(0);
+      }
       //console.log(count.current)
       const canvasElement = canvasRef.current;
       const canvasCtx = canvasElement.getContext("2d");
@@ -182,17 +184,17 @@ function Squat(props) {
         canvasCtx.strokeStyle = "white";
         canvasCtx.stroke();
       }
-      
+
       for (let i = 0; i < 3; i++) {
         canvasCtx.beginPath();
         canvasCtx.arc(upadatedPos[i].x, upadatedPos[i].y, 10, 0, Math.PI * 2);
         canvasCtx.fillStyle = "#AAFF00";
         canvasCtx.fill();
       }
-    
+
       canvasCtx.font = "40px aerial";
       canvasCtx.fillText(angle, upadatedPos[1].x + 10, upadatedPos[1].y + 40);
-      
+
       canvasCtx.restore();
     }
   }
@@ -224,7 +226,7 @@ function Squat(props) {
       camera = new cam.Camera(webcamRef.current.video, {
         onFrame: async () => {
           countTextbox.current.value = count;
-          
+
           await pose.send({ image: webcamRef.current.video });
         },
         width: 640,
@@ -242,9 +244,9 @@ function Squat(props) {
 
   return (
     <div className="background">
-      <div style={styles.selectBox} >
+      <div style={styles.selectBox}>
         <h1>Workout</h1>
-        <img src={imgSource} width="300" alternate="bicepimage"/>
+        <img src={imgSource} width="300" alternate="bicepimage" />
         <br></br>
         <div style={{ top: 50 }}>
           <h1>Count</h1>
@@ -256,11 +258,9 @@ function Squat(props) {
             style={{ height: 50, fontSize: 40, width: 80 }}
           />
           <br></br>
-          <div>{
-            conf==1?<h5>Knees Leaning Forward</h5>:<h5></h5>}
-          </div>
-          <div>{
-            conf2==1?<h5>Upper body hunched forward</h5>:<h5></h5>}
+          <div>{conf == 1 ? <h5>Knees Leaning Forward</h5> : <h5></h5>}</div>
+          <div>
+            {conf2 == 1 ? <h5>Upper body hunched forward</h5> : <h5></h5>}
           </div>
           <br></br>
           <Button
