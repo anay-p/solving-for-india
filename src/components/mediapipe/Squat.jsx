@@ -11,6 +11,7 @@ import pushups from "./pushup.png";
 import squats from "./squats.png";
 import { Link } from "react-router-dom";
 import "./counter.css";
+import { useUserMedia } from "./getUSerMedia";
 const styles = {
   webcam: {
     position: "absolute",
@@ -77,6 +78,7 @@ let hipa = 0;
 let anklea = 0;
 function Squat(props) {
   //const [exr, setExr] = useState("bicepCurls");
+  const { stream, error } = useUserMedia({ audio: true, video: true });
   const [conf, setConf] = useState(0);
   const [conf2, setConf2] = useState(0);
   let imgSource;

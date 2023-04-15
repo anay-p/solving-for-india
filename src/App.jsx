@@ -11,10 +11,11 @@ import Bicepcurl from "./components/mediapipe/Bicepcurl";
 import PushUp from "./components/mediapipe/PushUp";
 import Squat from "./components/mediapipe/Squat";
 import Shoulderpress from "./components/mediapipe/Shoulderpress";
-
+import { useUserMedia } from "./components/mediapipe/getUSerMedia";
 
 
 function App() {
+
   return (
     <BrowserRouter>
     <div className="App">

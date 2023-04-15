@@ -10,7 +10,7 @@ import bicepcurls from "./BicepCurl.png";
 import pushups from "./pushup.png";
 import squats from "./squats.png";
 import { Link } from "react-router-dom";
-
+import { useUserMedia } from "./getUSerMedia";
 import "./counter.css";
 const styles = {
   webcam: {
@@ -80,6 +80,7 @@ let str;
 
 function Bicepcurl(props) {
   //const [exr, setExr] = useState("bicepCurls");
+  const { stream, error } = useUserMedia({ audio: true, video: true });
   const [conf, setConf] = useState(0);
   let imgSource;
   if (props.exercise === "bicepCurls") {
