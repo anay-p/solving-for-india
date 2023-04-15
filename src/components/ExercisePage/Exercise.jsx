@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 // import { Link } from "react-router-dom";
-import bicepcurls from "./bicepCurl.png";
+import bicepcurls from "./BicepCurl.png";
 import shoulderpress from "./ShoulderPress.png";
 import pushups from "./pushup.png";
 import squats from "./squats.png";
