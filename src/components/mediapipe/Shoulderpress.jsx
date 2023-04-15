@@ -11,6 +11,7 @@ import pushups from "./pushup.png";
 import squats from "./squats.png";
 import { Link } from "react-router-dom";
 import "./counter.css";
+import { useUserMedia } from "./getUSerMedia";
 const styles = {
   webcam: {
     position: "absolute",
@@ -74,7 +75,7 @@ let angle = 0;
 
 function Shoulderpress(props) {
   //const [exr, setExr] = useState("bicepCurls");
-
+  const { stream, error } = useUserMedia({ audio: true, video: true });
   let imgSource;
   if (props.exercise === "bicepCurls") {
     imgSource = bicepcurls;
