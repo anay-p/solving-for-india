@@ -11,9 +11,13 @@
   justify-content: center;
   align-items: center;
 }
-.container {
+.containernav {
   margin-bottom: 5%;
-  gap: 100px;
+  /* gap: 100px; */
+  justify-content: center;
+  align-items: center;
+  padding: 80%;
+  margin: auto;
 }
 .heroicon {
   width: 4rem;
@@ -41,7 +45,7 @@
 .button3 {
   font-size: large;
   font-weight: 600;
-  padding: 14px 20px 14px 20px;
+  padding: 10px 30px 10px 30px;
   border-radius: 8px;
   background-color: rgb(215, 0, 0);
 }

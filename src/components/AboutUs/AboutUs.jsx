@@ -1,5 +1,5 @@
 import React from "react";
-import "./AboutUs.css";
+import "./aboutus.css";
 import NavbarComp from "../Navbar/Navbar";
 
 const AboutUs = () => {
@@ -14,9 +14,7 @@ const AboutUs = () => {
             technology also allows us to provide you with customized workout
             plans that are designed to help you achieve your specific goals,
             whether you're looking to lose weight, build muscle, or improve your
-            overall fitness. At FitHub, we believe that machine learning is the
-            future of fitness, and we're committed to staying at the forefront
-            of this technology. Come visit us today and experience the power of
+            overall fitness.Come visit us today and experience the power of
             machine learning for yourself!
           </div>
           <div className="imageContainer">
