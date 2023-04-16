@@ -18,7 +18,11 @@ const Exercise = () => {
         <div className="excontainer">
           <div className="exercisecard">
             <a href="/bicepcurls">
-              <img src={bicepcurls} alt="bicepimage" width="250"></img>
+              <img
+                src="https://res.cloudinary.com/dhnkuonev/image/upload/v1681638721/biceps__1_-removebg-preview_v3vu2t.png"
+                alt="bicepimage"
+                width="250"
+              ></img>
               <h1>Bicep Curls</h1>
             </a>
           </div>
@@ -36,7 +40,11 @@ const Exercise = () => {
           </div>
           <div className="exercisecard">
             <a href="/shoulderpress">
-              <img src={shoulderpress} alt="bicepimage" width="250"></img>
+              <img
+                src="https://res.cloudinary.com/dhnkuonev/image/upload/v1681638024/shoulderpress_exwzqu-removebg-preview_rimzrs.png"
+                alt="bicepimage"
+                width="250"
+              ></img>
               <h1>Shoulder Press</h1>
             </a>
           </div>

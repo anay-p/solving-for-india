@@ -40,3 +40,9 @@
   padding-top: 8px;
   text-align: center;
 }
+a:link {
+  color: white;
+}
+a:visited {
+  color: white;
+}
