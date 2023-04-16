@@ -3,7 +3,8 @@ import "./styles.css";
 import NavbarComp from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import Chat from "../../Chatbot/Chat";
-
+import { Link } from "react-router-dom";
+import Button from "react-bootstrap/Button";
 const HeroPage = () => {
   return (
     <div>

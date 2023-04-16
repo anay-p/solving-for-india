@@ -11,11 +11,11 @@ import Bicepcurl from "./components/mediapipe/Bicepcurl";
 import PushUp from "./components/mediapipe/PushUp";
 import Squat from "./components/mediapipe/Squat";
 import Shoulderpress from "./components/mediapipe/Shoulderpress";
-import { useUserMedia } from "./components/mediapipe/getUSerMedia";
+// import { useUserMedia } from "./components/mediapipe/getUSerMedia";
 
 
 function App() {
-  const { stream, error } = useUserMedia({ audio: true, video: true });
+ 
   return (
     <BrowserRouter>
     <div className="App">
@@ -30,8 +30,10 @@ function App() {
       <Route path='/pushups' element= {<PushUp exercise={"pushups"} />} />
       <Route path='/squats' element= {<Squat exercise={"squats"} />} />
       <Route path='/shoulderpress' element= {<Shoulderpress exercise={"shoulderpress"} />} />
+      <Route path='/dashboard' Component={Dashboard} exact/>
       </Routes>
       {/* <Dashboard /> */}
+
     </div>
     
     </BrowserRouter>
