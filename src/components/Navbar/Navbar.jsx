@@ -21,12 +21,12 @@ const NavbarComp = () => {
               Home
             </Nav.Link>
             <Nav.Link className="linkText" href="/aboutus">
-              About Us
+              About
             </Nav.Link>
             <Nav.Link className="linkText" href="/exercises">
-              Exercises
+              Workouts
             </Nav.Link>
-            <Nav.Link href="Sign Up">
+            <Nav.Link href="/dashboard">
               <Button className="button3" variant="dark">
                 Sign Up
               </Button>

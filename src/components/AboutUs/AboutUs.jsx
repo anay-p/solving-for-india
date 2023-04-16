@@ -9,13 +9,13 @@ const AboutUs = () => {
       <div className="container">
         <div className="aboutus">
           <div className="textContainer">
-            At FitHub, we believe that technology can help us achieve our
-            fitness goals faster and more efficiently.Our machine learning
+            At e-GymBro, we believe that technology can help us achieve our
+            fitness goals faster and more efficiently. Our machine learning
             technology also allows us to provide you with customized workout
             plans that are designed to help you achieve your specific goals,
             whether you're looking to lose weight, build muscle, or improve your
-            overall fitness.Come visit us today and experience the power of
-            machine learning for yourself!
+            overall fitness. Come visit us today and experience the power of fitness
+            enhanced by machine learning for yourself!
           </div>
           <div className="imageContainer">
             <img
