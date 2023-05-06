@@ -30,7 +30,7 @@ We plan to upscale our product by adding a personalized diet and training system
 
 Team Name: Goal Diggers
 
-- [Anay Parekh](https://github.com/anay-p)
+- [Anay Pareek](https://github.com/anay-p)
 - [Ashutosh Rath](https://github.com/Lucif3r-in)
 - [Omkar Amlan Krishna](https://github.com/OmkarAmlan)
 - [Shirsho Das Roy](https://github.com/shirsho-roy)
