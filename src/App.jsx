@@ -12,7 +12,7 @@ import PushUp from "./components/mediapipe/PushUp";
 import Squat from "./components/mediapipe/Squat";
 import Shoulderpress from "./components/mediapipe/Shoulderpress";
 // import { useUserMedia } from "./components/mediapipe/getUSerMedia";
-
+import SignIn from "./components/SignIn/SignIn";
 
 function App() {
  
@@ -31,6 +31,7 @@ function App() {
       <Route path='/squats' element= {<Squat exercise={"squats"} />} />
       <Route path='/shoulderpress' element= {<Shoulderpress exercise={"shoulderpress"} />} />
       <Route path='/dashboard' Component={Dashboard} exact/>
+      <Route path='/sign-in' Component={SignIn} exact />
       </Routes>
       {/* <Dashboard /> */}
 
