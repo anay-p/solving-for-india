@@ -4,7 +4,7 @@
 
 ### Overview
 
-e-GymBro is a web based application that aims to provide its users with a virtual “gym bro,” a non-judgmental and free-of-cost fitness partner and mentor right at home. It helps the user in keeping track of their progress as they exercise and provides them with feedback to improve their form. It also provides the user with their very own fitness assistant called ChadGPT. 
+e-GymBro is a web based application that aims to provide its users with a virtual “gym bro,” a non-judgmental and free-of-cost fitness partner and mentor right at home. It helps the user in keeping track of their progress as they exercise and provides them with feedback to improve their form. It also provides the user with their very own fitness assistant called ChadGPT.
 
 ### Problem statement
 
@@ -25,3 +25,12 @@ The web app is hosted on a Google Compute Engine which is an N2D AMD instance ru
 ### Future Plans
 
 We plan to upscale our product by adding a personalized diet and training system along with a fitness progress tracker. Immediately next in the pipeline, we have a machine learning based bodyfat prediction system that allows you to find out your bodyfat percentage without having to resort to the laborious tradition means of testing. Instead, the user only needs to plug in their age, height, weight and some other body measurements that can easily be taken at home.
+
+### Contributors:
+
+Team Name: Goal Diggers
+
+- [Anay Parekh](https://github.com/anay-p)
+- [Ashutosh Rath](https://github.com/Lucif3r-in)
+- [Omkar Amlan Krishna](https://github.com/OmkarAmlan)
+- [Shirsho Das Roy](https://github.com/shirsho-roy)
