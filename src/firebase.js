@@ -2,8 +2,8 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAHK0o3Vv3eCr0vMYzNlPL8fZDGwlgDH0o",
-  authDomain: "solving-for-india-381319.firebaseapp.com"
+  apiKey: import.meta.env.VITE_API_KEY,
+  authDomain: import.meta.env.VITE_AUTH_DOMAIN
 };
 
 const app = initializeApp(firebaseConfig);
