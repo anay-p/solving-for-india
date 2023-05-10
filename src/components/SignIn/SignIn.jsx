@@ -1,8 +1,9 @@
-import React, {useState} from 'react';
+import React, {useState,Component} from 'react';
 import {  signInWithEmailAndPassword   } from 'firebase/auth';
 import { auth } from '../../firebase';
-import { NavLink, useNavigate } from 'react-router-dom'
- 
+import { Form, Button, Card, Alert } from "react-bootstrap"
+import { NavLink, useNavigate,Link } from 'react-router-dom'
+import './Sign.css'
 const SignIn = () => {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
@@ -26,61 +27,105 @@ const SignIn = () => {
     }
  
     return(
-        <>
-            <main >        
-                <section>
-                    <div>                                            
-                        <p> FocusApp </p>                       
-                                                       
-                        <form>                                              
-                            <div>
-                                <label htmlFor="email-address">
-                                    Email address
-                                </label>
-                                <input
-                                    id="email-address"
-                                    name="email"
-                                    type="email"                                    
-                                    required                                                                                
-                                    placeholder="Email address"
-                                    onChange={(e)=>setEmail(e.target.value)}
-                                />
-                            </div>
-
-                            <div>
-                                <label htmlFor="password">
-                                    Password
-                                </label>
-                                <input
-                                    id="password"
-                                    name="password"
-                                    type="password"                                    
-                                    required                                                                                
-                                    placeholder="Password"
-                                    onChange={(e)=>setPassword(e.target.value)}
-                                />
-                            </div>
-                                                
-                            <div>
-                                <button                                    
-                                    onClick={onLogin}                                        
-                                >      
-                                    Login                                                                  
-                                </button>
-                            </div>                               
-                        </form>
-                       
-                        <p className="text-sm text-white text-center">
-                            No account yet? {' '}
-                            <NavLink to="/">
-                                Sign up
-                            </NavLink>
-                        </p>
-                                                   
-                    </div>
-                </section>
-            </main>
-        </>
+        <div className="App1">
+        <div className="appAside"/>
+        <div className="appForm">
+        <div className="pageSwitcher">
+              <NavLink
+                to="/login"
+                activeClassName="pageSwitcherItem-active"
+                className="pageSwitcherItem"
+              >
+                Sign In
+              </NavLink>
+              <NavLink
+                exact
+                to="/signup"
+                activeClassName="pageSwitcherItem-active"
+                className="pageSwitcherItem"
+              >
+                Sign Up
+              </NavLink>
+            </div>
+        <div className="formTitle">
+              <NavLink
+                to="/login"
+                activeClassName="formTitleLink-active"
+                className="formTitleLink"
+              >
+                Sign In
+              </NavLink>{" "}
+             
+              
+            </div>
+        <div className="formCenter">
+        <form onSubmit={onLogin} className="formFields">
+        <div className="formField">
+            <label className="formFieldLabel" htmlFor="name">
+              Full Name
+            </label>
+            <input
+              type="text"
+              id="name"
+              className="formFieldInput"
+              placeholder="Enter your full name"
+              name="name"
+             
+            />
+          </div>
+        <div className="formField">
+            <label className="formFieldLabel" htmlFor="email">
+              E-Mail Address
+            </label>
+            <input
+              type="email"
+              id="email"
+              className="formFieldInput"
+              placeholder="Enter your email"
+              name="email"
+              onChange={(e)=>setEmail(e.target.value)}
+            />
+          </div>
+          <div className="formField">
+            <label className="formFieldLabel" htmlFor="password">
+              Password
+            </label>
+            <input
+              type="password"
+              id="password"
+              className="formFieldInput"
+              placeholder="Enter your password"
+              name="password"
+              onChange={(e)=>setPassword(e.target.value)}
+            />
+          </div>
+          <div className="formField">
+            <label className="formFieldCheckboxLabel">
+              <input
+                className="formFieldCheckbox"
+                type="checkbox"
+                name="hasAgreed"
+                required
+              />{" "}
+              I agree all statements in{" "}
+              <a href="null" className="formFieldTermsLink">
+                terms of service
+              </a>
+            </label>
+          </div>
+    
+          
+    
+          <div className="formField">
+            <button className="formFieldButton">Sign In</button>{" "}
+            <Link to="/signup" className="formFieldLink">
+              I need to register
+            </Link>
+          </div>
+        </form>
+      </div>
+      </div>
+      </div>
     )
 }
  

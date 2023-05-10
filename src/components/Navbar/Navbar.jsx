@@ -26,7 +26,7 @@ const NavbarComp = () => {
             <Nav.Link className="linkText" href="/exercises">
               Workouts
             </Nav.Link>
-            <Nav.Link href="/sign-in">
+            <Nav.Link href="/signup">
               <Button className="button3" variant="dark">
                 Sign Up
               </Button>
