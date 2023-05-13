@@ -10,7 +10,7 @@ const HeroPage = () => {
     <div>
     <NavbarComp/>
     <div className="herosection">
-      <div className="CoverPage">
+      <div className="CoverPagex">
         <div className="content">
           <span>Train insane or remain the same</span>
           <h1>EMBRACE A NEW AGE OF FITNESS</h1>

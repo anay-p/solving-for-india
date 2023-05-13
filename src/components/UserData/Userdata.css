@@ -1,0 +1,121 @@
+.App1 {
+  height: 100vh;
+  display: flex;
+  color: white;
+}
+.appAside {
+  width: 50%;
+  background-image: url("img.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.appForm {
+  width: 100%;
+  background-color: #12130f;
+  padding: 25px 40px;
+  overflow: auto;
+}
+.appForm::-webkit-scrollbar {
+  width: 5px;
+}
+
+.appForm::-webkit-scrollbar-track {
+  background: #888;
+}
+
+.appForm::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background: #f00;
+}
+
+.appForm::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.formCenter {
+  margin-bottom: 0;
+}
+.formgroup {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+}
+.formTitle {
+  color: #707c8b;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+.formTitleLink:first-child {
+  margin-left: 0;
+}
+
+.formTitleLink-active {
+  color: white;
+  border-bottom: 1px solid #6b5b95;
+}
+
+.formField {
+  margin-bottom: 10px;
+}
+
+.formFieldLabel {
+  display: block;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  color: white;
+}
+.formFieldInput {
+  width: 85%;
+  background-color: transparent;
+  border: none;
+  color: white;
+  outline: none;
+  border-bottom: 1px solid #445366;
+  font-size: 1em;
+  font-weight: 300;
+  padding-bottom: 10px;
+  margin-top: 10px;
+}
+
+.formFieldInput::placeholder {
+  color: #616e7f;
+}
+
+.formFieldButton {
+  background-color: #f00;
+  color: white;
+  border: none;
+  outline: none;
+  border-radius: 25px;
+  padding: 15px 70px;
+  font-size: 0.8em;
+  font-weight: 500;
+}
+
+.formFieldCheckboxLabel {
+  color: #646f7d;
+  font-size: 0.9em;
+}
+
+.formFieldCheckbox {
+  position: relative;
+  top: 1.5px;
+}
+
+.formFieldTermsLink {
+  color: white;
+  border-bottom: 1px solid #6b5b95;
+  text-decoration: none;
+  display: inline-block;
+  padding-bottom: 2px;
+  margin-left: 5px;
+}
+
+.socialMediaButtons {
+  padding: 10px 100px 10px 0px;
+}
+.mr-20 {
+  margin-right: 20px !important;
+}
