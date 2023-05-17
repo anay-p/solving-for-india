@@ -1,13 +1,16 @@
 import React, { useState, Component } from "react";
 import { NavLink, useNavigate, Link } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../firebase";
+import { auth,createUserDocument } from "../../firebase";
 // import './log.css';
 // import { Row, FormGroup, FormControl, ControlLabel, Button, HelpBlock } from 'react-bootstrap';
 import "./Sign.css";
 const Signup = () => {
   const navigate = useNavigate();
-
+  const [name,setName] =useState("");
+  const [age,setAge] =useState();
+  const [height,setHeight] =useState();
+  const [weight,setWeight] =useState();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -18,7 +21,10 @@ const Signup = () => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        console.log(user);
+        let userx= {Name:name,Email:email,Age:age,Height:height,Weight:weight,ID:user.uid};
+       createUserDocument(userx);
+        
+        console.log(userx);
         navigate("/login");
         // ...
       })
@@ -73,6 +79,7 @@ const Signup = () => {
                 className="formFieldInput"
                 placeholder="Enter your full name"
                 name="name"
+                onChange={(e) => setName(e.target.value)}
               />
             </div>
             <div className="formField">
@@ -101,6 +108,45 @@ const Signup = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
+            <div className="formField">
+                <label className="formFieldLabel" htmlFor="age">
+                  Age
+                </label>
+                <input
+                  type="number"
+                  id="age"
+                  className="formFieldInput"
+                  placeholder="Enter your age"
+                  name="age"
+                  onChange={(e) => setAge(e.target.value)}
+                />
+              </div>
+              <div className="formField">
+                <label className="formFieldLabel" htmlFor="height">
+                  Height(in cms)
+                </label>
+                <input
+                  type="number"
+                  id="height"
+                  className="formFieldInput"
+                  placeholder="Enter your height"
+                  name="height"
+                  onChange={(e) => setHeight(e.target.value)}
+                />
+              </div>
+              <div className="formField">
+                <label className="formFieldLabel" htmlFor="height">
+                  Weight(in kg)
+                </label>
+                <input
+                  type="number"
+                  id="weight"
+                  className="formFieldInput"
+                  placeholder="Enter your weight"
+                  name="weight"
+                  onChange={(e) => setWeight(e.target.value)}
+                />
+              </div>
             <div className="formField">
               <label className="formFieldCheckboxLabel">
                 <input
