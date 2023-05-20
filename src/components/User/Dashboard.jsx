@@ -4,7 +4,7 @@ import Card from "react-bootstrap/Card";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Chart, Doughnut } from "react-chartjs-2";
 import Button from "react-bootstrap/Button";
-
+import { getAllData } from "../../firebase";
 import { Chart2 } from "./Chart2";
 import { Chartx } from "./Chart";
 
@@ -53,6 +53,10 @@ const options = {
 };
 
 const Dashboard = () => {
+  const {email}=useParams();
+  const [user,setUser]=useState([]);
+  setUser(getAllData((email)));
+  console.log(user);
   return (
     // <div className="sectioncontainer">
     <div class="main">
