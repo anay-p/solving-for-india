@@ -24,8 +24,8 @@ const Signup = () => {
         let userx= {Name:name,Email:email,Age:age,Height:height,Weight:weight,ID:user.uid};
        createUserDocument(userx);
         
-        console.log(userx);
-        navigate("/login");
+        
+        navigate(`dashboard/${userx.Email}`);
         // ...
       })
       .catch((error) => {
