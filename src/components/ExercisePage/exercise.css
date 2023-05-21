@@ -29,11 +29,11 @@
   background-color: rgba(17, 25, 40, 0.75);
   border-radius: 10px;
   padding: 50px;
-  border: 0px solid #f00;
+  border: 0px solid #f6740a;
   transition: all ease-in-out 0.5s;
 }
 .exercisecard:hover {
-  border: 1px solid #f00;
+  border: 1px solid #f6740a;
   transform: scale(1.05);
 }
 .exercisecard h1 {

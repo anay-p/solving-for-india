@@ -2,37 +2,49 @@
   width: 100%;
 }
 .CoverPage {
-  background-image: url(heroimage.gif);
+  background-image: url(herobg.png);
   height: 100vh;
-  background-position: center;
-  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 0% 70%;
+  /* background-size: cover; */
   /* padding: 2rem 9%; */
   color: rgb(255, 255, 255);
   font-family: "Nunito", sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  text-align: left;
 }
-
+.orange {
+  color: #f6740a;
+}
 .button {
   font-size: large;
   font-weight: 600;
   display: inline-block;
-  padding: 1rem 1.8rem;
-  padding-right: 2rem;
-  background: linear-gradient(130deg, #f00 93%, transparent 90%);
-  color: #fff;
+  padding: 1rem 1.3rem;
+  /* background: linear-gradient(130deg, #f6740a 93%, transparent 90%); */
+  color: #f6740a;
+  border: 2px solid #f6740a;
+  border-radius: 10px;
   cursor: pointer;
   font-size: 1.3rem;
+  margin-left: 25%;
+  transition: all 400ms;
+}
+
+.button:hover {
+  background-color: #f6740a;
+  color: #fff;
 }
 
 .button2 {
-  background-color: #f00;
+  background-color: #f6740a;
   color: white;
   border-radius: 20px;
-  border-color: #f00;
+  border-color: #f6740a;
   transition: all 0.2s ease-in-out;
 }
 .button2:hover {
@@ -42,18 +54,9 @@
   padding: 0;
   margin-top: 5rem;
 }
-
-.home {
-  min-height: 70vh;
-  background-size: cover !important;
-  background-position: center !important;
-  padding: 2rem 9%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+.content {
+  margin-left: 4%;
+  margin-top: -4%;
 }
 
 .content h5 {
@@ -67,22 +70,7 @@
   color: #d6d6d6;
   display: block;
 }
-.content h1 {
-  font-size: 3rem;
-  color: #fff;
+.content h2 {
+  font-size: 2.5rem;
   padding: 1rem 0;
-}
-.content h1:hover {
-  color: #f00;
-}
-
-.swiper-pagination-bullet {
-  height: 2rem;
-  width: 2rem;
-  background: #fff;
-  border-radius: 0;
-}
-
-.swiper-pagination-bullet.swiper-pagination-bullet-active {
-  background: #f00;
 }

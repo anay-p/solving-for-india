@@ -10,7 +10,7 @@ const HeroPage = () => {
         <div className="CoverPage">
           <div className="content">
             <span>Train insane or remain the same</span>
-            <h1>EMBRACE A NEW AGE OF FITNESS</h1>
+            <h2 className="orange">EMBRACE A NEW AGE OF FITNESS</h2>
             <h5>Want to build a good physique? Let us help you.</h5>
             <div className="button">
               <a href="/exercises">Getting Started</a>

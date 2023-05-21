@@ -8,11 +8,11 @@ const AboutUs = () => {
     <div>
       <NavbarComp />
       <div className="container">
-        <h1>About Us</h1>
+        <h1 style={{ color: "#f6740a" }}>About Us</h1>
         {aboutus.descriptions.map((descriptions) => (
           <div className="aboutus">
             <div className="textContainer">
-              <h1>{descriptions.title}</h1>
+              <h1 style={{ color: "#ea8537" }}>{descriptions.title}</h1>
               {descriptions.desc}
             </div>
             <div className="imageContainer">
