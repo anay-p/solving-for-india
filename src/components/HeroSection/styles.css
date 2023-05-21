@@ -1,7 +1,7 @@
 .herosection {
   width: 100%;
 }
-.CoverPagex{
+.CoverPage {
   background-image: url(heroimage.gif);
   height: 100vh;
   background-position: center;
@@ -38,7 +38,7 @@
 .button2:hover {
   transform: scale(1.1);
 }
-.homew {
+.home {
   padding: 0;
   margin-top: 5rem;
 }
@@ -55,7 +55,6 @@
   -ms-flex-align: center;
   align-items: center;
 }
-
 
 .content h5 {
   font-size: 1.4rem;
