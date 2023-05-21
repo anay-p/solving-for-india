@@ -1,29 +1,25 @@
 import React from "react";
 import "./aboutus.css";
 import NavbarComp from "../Navbar/Navbar";
+import { aboutus } from "../../../config";
 
 const AboutUs = () => {
   return (
     <div>
       <NavbarComp />
       <div className="container">
-        <div className="aboutus">
-          <div className="textContainer">
-            At e-GymBro, we believe that technology can help us achieve our
-            fitness goals faster and more efficiently. Our machine learning
-            technology also allows us to provide you with customized workout
-            plans that are designed to help you achieve your specific goals,
-            whether you're looking to lose weight, build muscle, or improve your
-            overall fitness. Come visit us today and experience the power of fitness
-            enhanced by machine learning for yourself!
+        <h1>About Us</h1>
+        {aboutus.descriptions.map((descriptions) => (
+          <div className="aboutus">
+            <div className="textContainer">
+              <h1>{descriptions.title}</h1>
+              {descriptions.desc}
+            </div>
+            <div className="imageContainer">
+              <img src={descriptions.src} alt="" />
+            </div>
           </div>
-          <div className="imageContainer">
-            <img
-              src="https://res.cloudinary.com/dhnkuonev/image/upload/v1680769940/aboutus_lcmia0.jpg"
-              alt=""
-            />
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );
