@@ -73,7 +73,7 @@ const Dashboard = () => {
               src="https://res.cloudinary.com/dhnkuonev/image/upload/v1679906502/11602236_21004063_c6g3he-removebg-preview_ntr0cu.png"
               alt=""
               style={{
-                border: "1.5px solid #f00",
+                border: "1.5px solid #f6740a",
                 borderRadius: "50%",
                 height: "100px",
                 width: "100px",

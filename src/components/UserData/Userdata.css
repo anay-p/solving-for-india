@@ -26,7 +26,7 @@
 
 .appForm::-webkit-scrollbar-thumb {
   border-radius: 20px;
-  background: #f00;
+  background: #f6740a;
 }
 
 .appForm::-webkit-scrollbar-thumb:hover {
@@ -84,7 +84,7 @@
 }
 
 .formFieldButton {
-  background-color: #f00;
+  background-color: #f6740a;
   color: white;
   border: none;
   outline: none;

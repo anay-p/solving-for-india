@@ -48,7 +48,7 @@ const styles = {
     color: "#05386B",
     background: "#FFFFFF",
     borderRadius: 10,
-    border: "3px solid #f00",
+    border: "3px solid #f6740a",
   },
   back: {
     position: "absolute",

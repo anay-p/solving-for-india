@@ -28,14 +28,15 @@
 }
 
 .linkText {
+  font-family: "Inter", sans-serif;
   text-decoration: none;
   color: #fff;
   font-size: 1.5rem;
   font-weight: 500;
 }
 .linkText:hover {
-  border-color: #f00;
-  color: #f00;
+  border-color: #f6740a;
+  color: #f6740a;
 }
 
 .button3 {
@@ -44,5 +45,10 @@
   font-weight: 600;
   padding: 10px 30px 10px 30px;
   border-radius: 8px;
-  background-color: rgb(215, 0, 0);
+  background-color: #f6740a;
+  transition: all 400ms;
+}
+
+.button3:hover {
+  transform: scale(1.05);
 }

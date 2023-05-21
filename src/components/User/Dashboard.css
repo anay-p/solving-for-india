@@ -15,7 +15,7 @@
   /* align-items: flex-start; */
   height: 80vh;
   width: 300px;
-  border: 2px solid #f00;
+  border: 2px solid #f6740a;
   border-radius: 10px;
   /* padding: 2rem; */
   display: flex;
@@ -38,7 +38,7 @@
 }
 .overview {
   background: rgba(41, 49, 77, 0.4);
-  border: 2px solid #f00;
+  border: 2px solid #f6740a;
   padding: 12px;
 }
 .sets {
@@ -72,18 +72,18 @@
   flex-direction: row;
   justify-content: space-evenly;
   background: rgba(41, 49, 77, 0.4);
-  border: 2px solid #f00;
+  border: 2px solid #f6740a;
   padding: 12px;
 }
 
 .activity {
   background: rgba(41, 49, 77, 0.4);
-  border: 2px solid #f00;
+  border: 2px solid #f6740a;
   padding: 12px;
 }
 .workouts {
   background: rgba(41, 49, 77, 0.4);
-  border: 2px solid #f00;
+  border: 2px solid #f6740a;
   padding: 12px;
   margin-top: 20px;
 }
