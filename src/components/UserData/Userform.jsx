@@ -1,5 +1,5 @@
 import React, { useState, Component } from "react";
-import { NavLink, useNavigate, Link } from "react-router-dom";
+import { Nav, useNavigate, Link } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
 // import './log.css';
@@ -12,14 +12,12 @@ const UserData = () => {
     <div className="App1">
       <div className="appForm">
         <div className="formTitle">
-          <NavLink
-            exact
-            to="/signup"
+          <div
             activeClassName="formTitleLink-active"
             className="formTitleLink"
           >
             Let's know you more!!Enter additional details!
-          </NavLink>
+          </div>
         </div>
         <div className="formCenter">
           <form className="formFields">
