@@ -79,7 +79,7 @@ const Dashboard = () => {
           setHeight(userData["Height"]);
         });
       } else {
-        navigate("/login");
+        navigate("/log-in")
       }
     });
   }, []);
