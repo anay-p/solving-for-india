@@ -10,7 +10,7 @@ import { Chartx } from "./Chart";
 import NavbarComp from "../Navbar/Navbar";
 import { auth, db } from "../../firebase";
 import { useNavigate } from "react-router";
-import { onAuthStateChanged, signOut } from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
 import { collection, query, where, getDocs } from "firebase/firestore";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -90,7 +90,6 @@ const Dashboard = () => {
     return (
       <>
         <NavbarComp />
-        <button onClick={() => {signOut(auth);}}>Log out</button>
         <div className="sectioncontainer">
           <h1 style={{ textDecoration: "underline" }}>Dashboard</h1>
           <div class="main">
