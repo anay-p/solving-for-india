@@ -1,16 +1,16 @@
 import React, { useState, Component } from "react";
 import { NavLink, useNavigate, Link } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth,createUserDocument } from "../../firebase";
+import { auth, createUserDocument } from "../../firebase";
 // import './log.css';
 // import { Row, FormGroup, FormControl, ControlLabel, Button, HelpBlock } from 'react-bootstrap';
 import "./Sign.css";
 const Signup = () => {
   const navigate = useNavigate();
-  const [name,setName] =useState("");
-  const [age,setAge] =useState();
-  const [height,setHeight] =useState();
-  const [weight,setWeight] =useState();
+  const [name, setName] = useState("");
+  const [age, setAge] = useState();
+  const [height, setHeight] = useState();
+  const [weight, setWeight] = useState();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -21,8 +21,15 @@ const Signup = () => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        let userx= {Name:name,Email:email,Age:age,Height:height,Weight:weight,ID:user.uid};
-       createUserDocument(userx);
+        let userx = {
+          Name: name,
+          Email: email,
+          Age: age,
+          Height: height,
+          Weight: weight,
+          ID: user.uid,
+        };
+        createUserDocument(userx);
         navigate("/dashboard");
         // ...
       })
@@ -40,19 +47,13 @@ const Signup = () => {
       <div className="appForm">
         <div className="pageSwitcher">
           <NavLink
-            to="/log-in"
-            activeClassName="pageSwitcherItem-active"
-            className="pageSwitcherItem"
-          >
-            Log In
-          </NavLink>
-          <NavLink
             exact
-            to="/sign-up"
+            to="/"
+
             activeClassName="pageSwitcherItem-active"
             className="pageSwitcherItem"
           >
-            Sign Up
+            Home
           </NavLink>
         </div>
         <div className="formTitle">
