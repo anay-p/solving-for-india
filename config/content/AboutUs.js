@@ -21,4 +21,53 @@ export default {
       src: "https://res.cloudinary.com/dhnkuonev/image/upload/v1683637811/7454944_3641352_nenslv.jpg",
     },
   ],
+  teamMembers: [
+    {
+      id: "1",
+      imgSrc: "https://avatars.githubusercontent.com/u/85403534?v=4",
+      name: "Ashutosh Rath",
+      links: [
+        {
+          github: "https://github.com/Lucif3r-in",
+          linkedIn: "https://www.linkedin.com/in/ashutosh-rath-54065a274/",
+        },
+      ],
+    },
+    {
+      id: "2",
+      imgSrc:
+        "https://res.cloudinary.com/dhnkuonev/image/upload/v1684769013/343729991_967440394444568_3174949634138223962_n_xb3ofb.jpg",
+      name: "Anay Pareek",
+      links: [
+        {
+          github: "https://github.com/anay-p",
+          linkedIn: "https://www.linkedin.com/in/anay-pareek-1493671a7/",
+        },
+      ],
+    },
+    {
+      id: "3",
+      imgSrc:
+        "https://res.cloudinary.com/dhnkuonev/image/upload/v1684769575/3a3258ec358f72f275f82c057305949f_original_w_pzwpsj.jpg",
+      name: "Omkar Amlan Krishna",
+      links: [
+        {
+          github: "https://github.com/OmkarAmlan",
+          linkedIn:
+            "https://www.linkedin.com/in/omkar-amlan-krishna-b8050b223/",
+        },
+      ],
+    },
+    {
+      id: "4",
+      imgSrc: "https://avatars.githubusercontent.com/u/105341321?v=4",
+      name: "Shirsho Das Roy",
+      links: [
+        {
+          github: "https://github.com/shirsho-roy",
+          linkedIn: "https://www.linkedin.com/in/shirsho-das-roy-303151202/",
+        },
+      ],
+    },
+  ],
 };
