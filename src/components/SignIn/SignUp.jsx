@@ -121,7 +121,7 @@ const Signup = () => {
               </div>
               <div className="formField">
                 <label className="formFieldLabel" htmlFor="height">
-                  Height (in cms)
+                  Height (in cm)
                 </label>
                 <input
                   type="number"

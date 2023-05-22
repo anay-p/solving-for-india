@@ -84,7 +84,7 @@ const NavbarComp = () => {
                 signOut(auth);
                 navigate("/log-in");
                 }}>
-                Sign Out
+                Log Out
               </Button>
             </Nav>
           </Container>
