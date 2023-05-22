@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useEffect, useState } from "react";
 import "./Dashboard.css";
 import Card from "react-bootstrap/Card";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
@@ -8,6 +8,10 @@ import Button from "react-bootstrap/Button";
 import { Chart2 } from "./Chart2";
 import { Chartx } from "./Chart";
 import NavbarComp from "../Navbar/Navbar";
+import { auth, db } from "../../firebase";
+import { useNavigate } from "react-router";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import { collection, query, where, getDocs } from "firebase/firestore";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 const data = {
@@ -54,44 +58,185 @@ const options = {
 };
 
 const Dashboard = () => {
-  return (
-    <>
-      <NavbarComp />
-      <div className="sectioncontainer">
-        <h1 style={{ textDecoration: "underline" }}>Dashboard</h1>
-        <div class="main">
-          <div
-            className="sidebar"
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-            }}
-          >
-            <h1 style={{ top: "0" }}>Profile</h1>
-            <img
-              src="https://res.cloudinary.com/dhnkuonev/image/upload/v1679906502/11602236_21004063_c6g3he-removebg-preview_ntr0cu.png"
-              alt=""
+
+  const [uid, setUid] = useState("");
+  const [name, setName] = useState("");
+  const [age, setAge] = useState("");
+  const [weight, setWeight] = useState("");
+  const [height, setHeight] = useState("");
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUid(user.uid);
+        getDocs(query(collection(db, "users"), where("ID", "==", user.uid)))
+        .then((querySnapshot) => {
+          const userData = querySnapshot.docs[0].data();
+          setName(userData["Name"]);
+          setAge(userData["Age"]);
+          setWeight(userData["Weight"]);
+          setHeight(userData["Height"]);
+        });
+      } else {
+        navigate("/login")
+      }
+    });
+  }, [])
+
+  if (!height) {
+    return (<h1>Loading...</h1>);
+  } else {
+    return (
+      <>
+        <NavbarComp />
+        <button onClick={() => {signOut(auth);}}>Log out</button>
+        <div className="sectioncontainer">
+          <h1 style={{ textDecoration: "underline" }}>Dashboard</h1>
+          <div class="main">
+            <div
+              className="sidebar"
               style={{
-                border: "1.5px solid #f6740a",
-                borderRadius: "50%",
-                height: "100px",
-                width: "100px",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
               }}
-            />
-            <h2>Ashutosh Rath</h2>
-            <h3>Age: 20</h3>
-            <h3>Weight: 75 kg</h3>
-            <h3>Height: 170cm</h3>
-            <h3>BMI: Overweight</h3>
-          </div>
-          <div className="dashboard">
-            <div className="headdash">
-              <div className="overview">
-                <Card
-                  border="danger"
-                  style={{ width: "20rem", height: "22rem" }}
-                >
+            >
+              <h1 style={{ top: "0" }}>Profile</h1>
+              <img
+                src="https://res.cloudinary.com/dhnkuonev/image/upload/v1679906502/11602236_21004063_c6g3he-removebg-preview_ntr0cu.png"
+                alt=""
+                style={{
+                  border: "1.5px solid #f6740a",
+                  borderRadius: "50%",
+                  height: "100px",
+                  width: "100px",
+                }}
+              />
+              <h2>{name}</h2>
+              <h3>Age: {age}</h3>
+              <h3>Weight: {weight} kg</h3>
+              <h3>Height: {height}cm</h3>
+              <h3>BMI: Overweight</h3>
+            </div>
+            <div className="dashboard">
+              <div className="headdash">
+                <div className="overview">
+                  <Card
+                    border="danger"
+                    style={{ width: "20rem", height: "22rem" }}
+                  >
+                    <Card.Header
+                      style={{
+                        fontSize: "20px",
+                        paddingTop: "5px",
+                        textAlign: "center",
+                        textDecoration: "underline",
+                      }}
+                    >
+                      Overview
+                    </Card.Header>
+                    <Card.Body>
+                      <Card.Text>
+                        <Doughnut data={data} options={options} />
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </div>
+                <div className="activity">
+                  <Card
+                    border="danger"
+                    style={{ width: "22rem", height: "22rem" }}
+                  >
+                    <Card.Header
+                      style={{
+                        fontSize: "20px",
+                        paddingTop: "5px",
+                        textAlign: "center",
+                        textDecoration: "underline",
+                      }}
+                    >
+                      Today's Activity
+                    </Card.Header>
+                    <Card.Body className="dashbody">
+                      <Card.Text>
+                        <Button
+                          className="sets"
+                          variant="primary"
+                          style={{ width: "80px" }}
+                        >
+                          <h5>1.2 Hr</h5>
+                          <p>Per Day</p>
+                          <p>Gym</p>
+                        </Button>
+                        <Button
+                          className="sets"
+                          variant="danger"
+                          style={{ width: "80px" }}
+                        >
+                          <h5>5230</h5>
+                          <p>Sets</p>
+                          <p>Quads</p>
+                        </Button>
+                        <Button
+                          className="sets"
+                          variant="success"
+                          style={{ width: "80px" }}
+                        >
+                          <h5>1.4 Hr</h5>
+                          <p>Per Day</p>
+                          <p>Cardio</p>
+                        </Button>
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </div>
+              </div>
+              <div className="workouts">
+                <Card border="danger" style={{}}>
+                  <Card.Header
+                    style={{
+                      fontSize: "20px",
+                      paddingTop: "5px",
+                      textAlign: "center",
+                      textDecoration: "underline",
+                      margin: "auto",
+                    }}
+                  >
+                    Recommended Activity
+                  </Card.Header>
+                  <Card.Body style={{ paddingTop: "2rem", textAlign: "center" }}>
+                    {/* <Card.Title></Card.Title> */}
+                    <Card.Text
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "20px",
+                      }}
+                    >
+                      <div className="recc">
+                        <h5>Squats</h5>
+                        <p>15 sets</p>
+                      </div>
+                      <div className="recc">
+                        <h5>Pushups</h5>
+                        <p>15 sets</p>
+                      </div>
+                      <div className="recc">
+                        <h5>Pullups</h5>
+                        <p>15 sets</p>
+                      </div>
+                      <div className="recc">
+                        <h5>Crunches</h5>
+                        <p>15 sets</p>
+                      </div>
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+              </div>
+
+              <div className="Tracker">
+                <Card border="primary" style={{ width: "40%" }}>
                   <Card.Header
                     style={{
                       fontSize: "20px",
@@ -100,20 +245,16 @@ const Dashboard = () => {
                       textDecoration: "underline",
                     }}
                   >
-                    Overview
+                    Activity Tracker
                   </Card.Header>
                   <Card.Body>
+                    {/* <Card.Title>Primary Card Title</Card.Title> */}
                     <Card.Text>
-                      <Doughnut data={data} options={options} />
+                      <Chart2 />
                     </Card.Text>
                   </Card.Body>
                 </Card>
-              </div>
-              <div className="activity">
-                <Card
-                  border="danger"
-                  style={{ width: "22rem", height: "22rem" }}
-                >
+                <Card border="primary" style={{ width: "40%" }}>
                   <Card.Header
                     style={{
                       fontSize: "20px",
@@ -122,128 +263,22 @@ const Dashboard = () => {
                       textDecoration: "underline",
                     }}
                   >
-                    Today's Activity
+                    Weight Gain/Loss
                   </Card.Header>
-                  <Card.Body className="dashbody">
+                  <Card.Body>
+                    {/* <Card.Title>Primary Card Title</Card.Title> */}
                     <Card.Text>
-                      <Button
-                        className="sets"
-                        variant="primary"
-                        style={{ width: "80px" }}
-                      >
-                        <h5>1.2 Hr</h5>
-                        <p>Per Day</p>
-                        <p>Gym</p>
-                      </Button>
-                      <Button
-                        className="sets"
-                        variant="danger"
-                        style={{ width: "80px" }}
-                      >
-                        <h5>5230</h5>
-                        <p>Sets</p>
-                        <p>Quads</p>
-                      </Button>
-                      <Button
-                        className="sets"
-                        variant="success"
-                        style={{ width: "80px" }}
-                      >
-                        <h5>1.4 Hr</h5>
-                        <p>Per Day</p>
-                        <p>Cardio</p>
-                      </Button>
+                      <Chartx />
                     </Card.Text>
                   </Card.Body>
                 </Card>
               </div>
-            </div>
-            <div className="workouts">
-              <Card border="danger" style={{}}>
-                <Card.Header
-                  style={{
-                    fontSize: "20px",
-                    paddingTop: "5px",
-                    textAlign: "center",
-                    textDecoration: "underline",
-                    margin: "auto",
-                  }}
-                >
-                  Recommended Activity
-                </Card.Header>
-                <Card.Body style={{ paddingTop: "2rem", textAlign: "center" }}>
-                  {/* <Card.Title></Card.Title> */}
-                  <Card.Text
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      gap: "20px",
-                    }}
-                  >
-                    <div className="recc">
-                      <h5>Squats</h5>
-                      <p>15 sets</p>
-                    </div>
-                    <div className="recc">
-                      <h5>Pushups</h5>
-                      <p>15 sets</p>
-                    </div>
-                    <div className="recc">
-                      <h5>Pullups</h5>
-                      <p>15 sets</p>
-                    </div>
-                    <div className="recc">
-                      <h5>Crunches</h5>
-                      <p>15 sets</p>
-                    </div>
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-            </div>
-
-            <div className="Tracker">
-              <Card border="primary" style={{ width: "40%" }}>
-                <Card.Header
-                  style={{
-                    fontSize: "20px",
-                    paddingTop: "5px",
-                    textAlign: "center",
-                    textDecoration: "underline",
-                  }}
-                >
-                  Activity Tracker
-                </Card.Header>
-                <Card.Body>
-                  {/* <Card.Title>Primary Card Title</Card.Title> */}
-                  <Card.Text>
-                    <Chart2 />
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-              <Card border="primary" style={{ width: "40%" }}>
-                <Card.Header
-                  style={{
-                    fontSize: "20px",
-                    paddingTop: "5px",
-                    textAlign: "center",
-                    textDecoration: "underline",
-                  }}
-                >
-                  Weight Gain/Loss
-                </Card.Header>
-                <Card.Body>
-                  {/* <Card.Title>Primary Card Title</Card.Title> */}
-                  <Card.Text>
-                    <Chartx />
-                  </Card.Text>
-                </Card.Body>
-              </Card>
             </div>
           </div>
         </div>
-      </div>
-    </>
-  );
+      </>
+    );
+  }
 };
 
 export default Dashboard;

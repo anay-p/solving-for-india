@@ -8,7 +8,7 @@ const SignIn = () => {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-       
+
     const onLogin = (e) => {
         e.preventDefault();
         signInWithEmailAndPassword(auth, email, password)
@@ -23,9 +23,9 @@ const SignIn = () => {
             const errorMessage = error.message;
             console.log(errorCode, errorMessage)
         });
-       
+
     }
- 
+
     return(
         <div className="App1">
         <div className="appAside"/>
@@ -55,24 +55,11 @@ const SignIn = () => {
               >
                 Sign In
               </NavLink>{" "}
-             
-              
+
+
             </div>
         <div className="formCenter">
         <form onSubmit={onLogin} className="formFields">
-        <div className="formField">
-            <label className="formFieldLabel" htmlFor="name">
-              Full Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              className="formFieldInput"
-              placeholder="Enter your full name"
-              name="name"
-             
-            />
-          </div>
         <div className="formField">
             <label className="formFieldLabel" htmlFor="email">
               E-Mail Address
@@ -99,23 +86,9 @@ const SignIn = () => {
               onChange={(e)=>setPassword(e.target.value)}
             />
           </div>
-          <div className="formField">
-            <label className="formFieldCheckboxLabel">
-              <input
-                className="formFieldCheckbox"
-                type="checkbox"
-                name="hasAgreed"
-                required
-              />{" "}
-              I agree all statements in{" "}
-              <a href="null" className="formFieldTermsLink">
-                terms of service
-              </a>
-            </label>
-          </div>
-    
-          
-    
+
+
+
           <div className="formField">
             <button className="formFieldButton">Sign In</button>{" "}
             <Link to="/signup" className="formFieldLink">
@@ -128,5 +101,5 @@ const SignIn = () => {
       </div>
     )
 }
- 
+
 export default SignIn

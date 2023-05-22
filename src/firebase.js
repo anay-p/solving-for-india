@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import {getFirestore, query,collection, addDoc,getDoc,getDocs} from 'firebase/firestore';
+import { getFirestore, collection, addDoc } from 'firebase/firestore';
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_API_KEY,
   authDomain: import.meta.env.VITE_AUTH_DOMAIN,
@@ -13,10 +13,9 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 export const auth = getAuth(app);
-const db = getFirestore(app);
-export default app;
- export const createUserDocument= async(userx)=>{
-  if(!userx) return;
+export const db = getFirestore(app);
+export const createUserDocument = async (userx) => {
+  if (!userx) return;
   const userRef=collection(db, 'users');
   // const snapshot=await userRef.get();
   // if(!snapshot.exists){
@@ -26,22 +25,8 @@ export default app;
   addDoc(userRef,userx)
   .then(docRef => {
     console.log("Document has been added successfully");
-})
-.catch(error => {
-    console.log(error);
-})
- };
- export const getAllData=async(email)=>{
-   const q= query(collection(db,'users'),where("email","==",email))
-  //  const querySnapshot= await getDocs(q);
-  var userprof=[];
-  await getDocs(q).then((res)=>{
-    res.forEach(user=>{
-      userprof.push(doc.data());
   })
-  }).then(()=>{return userprof;})
-  //  querySnapshot.forEach(user=>{
-  //      userprof.push(doc.data());
-  //  })
-   
- };
+  .catch(error => {
+    console.log(error);
+  });
+};

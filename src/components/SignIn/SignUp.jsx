@@ -23,9 +23,7 @@ const Signup = () => {
         const user = userCredential.user;
         let userx= {Name:name,Email:email,Age:age,Height:height,Weight:weight,ID:user.uid};
        createUserDocument(userx);
-        
-        
-        navigate(`dashboard/${userx.Email}`);
+        navigate("/dashboard");
         // ...
       })
       .catch((error) => {
