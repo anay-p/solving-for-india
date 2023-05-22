@@ -106,13 +106,6 @@ const Dashboard = () => {
     return (
       <>
         <NavbarComp />
-        <button
-          onClick={() => {
-            signOut(auth);
-          }}
-        >
-          Log out
-        </button>
         <div className="sectioncontainer">
           <h1 style={{ textDecoration: "underline" }}>Dashboard</h1>
           <div class="main">
