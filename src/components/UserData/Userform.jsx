@@ -18,60 +18,15 @@ const UserData = () => {
             activeClassName="formTitleLink-active"
             className="formTitleLink"
           >
-            Let's know you more!!
+            Let's know you more!!Enter additional details!
           </NavLink>
         </div>
         <div className="formCenter">
           <form className="formFields">
-            <div className="formField">
-              <label className="formFieldLabel" htmlFor="name">
-                Full Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                className="formFieldInput"
-                placeholder="Enter your full name"
-                name="name"
-              />
-            </div>
+           
             <div className="formgroup">
-              <div className="formField">
-                <label className="formFieldLabel" htmlFor="age">
-                  Age
-                </label>
-                <input
-                  type="number"
-                  id="age"
-                  className="formFieldInput"
-                  placeholder="Enter your age"
-                  name="age"
-                />
-              </div>
-              <div className="formField">
-                <label className="formFieldLabel" htmlFor="height">
-                  Height(in cms)
-                </label>
-                <input
-                  type="number"
-                  id="height"
-                  className="formFieldInput"
-                  placeholder="Enter your height"
-                  name="height"
-                />
-              </div>
-              <div className="formField">
-                <label className="formFieldLabel" htmlFor="height">
-                  Weight(in kg)
-                </label>
-                <input
-                  type="number"
-                  id="weight"
-                  className="formFieldInput"
-                  placeholder="Enter your weight"
-                  name="weight"
-                />
-              </div>
+              
+            
               <div className="formField">
                 <label className="formFieldLabel" htmlFor="height">
                   Neck Circumference(in cms)
