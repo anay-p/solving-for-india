@@ -1,5 +1,5 @@
 import React, { useState, Component } from "react";
-import { Nav, useNavigate, Link } from "react-router-dom";
+import { NavLink, useNavigate, Link } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
 // import './log.css';
@@ -16,8 +16,10 @@ const UserData = () => {
             activeClassName="formTitleLink-active"
             className="formTitleLink"
           >
-            Let's know you more!!Enter additional details!
+            Let's know you more!!
           </div>
+          <h2>Enter your body measurements!</h2>
+          <h4>*We will use this data only to find your body fat percentage using our machine learning technology</h4>
         </div>
         <div className="formCenter">
           <form className="formFields">
@@ -146,8 +148,9 @@ const UserData = () => {
                 />
               </div>
             </div>
-            <div className="formField">
+            <div className="formFieldbut">
               <button className="formFieldButton">Submit</button>
+              <button className="formFieldButton">Skip</button>
             </div>
           </form>
         </div>
