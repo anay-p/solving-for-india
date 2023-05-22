@@ -41,14 +41,14 @@ const SignIn = () => {
         </div>
 
         <div className="formTitle">
-          <NavLink
-            to="/login"
-            activeClassName="formTitleLink-active"
-            className="formTitleLink"
-          >
-            Log In
-          </NavLink>{" "}
-        </div>
+              <NavLink
+                to="/login"
+                activeClassName="formTitleLink-active"
+                className="formTitleLink"
+              >
+                Log In
+              </NavLink>{" "}
+            </div>
         <div className="formCenter">
           <form onSubmit={onLogin} className="formFields">
             <div className="formField">
@@ -77,14 +77,15 @@ const SignIn = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <div className="formField">
-              <button className="formFieldButton">Log In</button>{" "}
-              <Link to="/sign-up" className="formFieldLink">
-                I want to register
-              </Link>
-            </div>
-          </form>
-        </div>
+          <div className="formField">
+            <button className="formFieldButton">Log In</button>{" "}
+            <Link to="/sign-up" className="formFieldLink">
+              I want to register
+            </Link>
+          </div>
+        </form>
+      </div>
+      </div>
       </div>
     </div>
   );
