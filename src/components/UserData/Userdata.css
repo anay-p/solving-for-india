@@ -59,6 +59,12 @@
 .formField {
   margin-bottom: 10px;
 }
+.formFieldbut {
+  margin-bottom: 10px;
+  display :flex;
+  flex-direction: row;
+  gap:10px;
+}
 
 .formFieldLabel {
   display: block;
