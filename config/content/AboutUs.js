@@ -1,23 +1,23 @@
 export default {
   descriptions: [
     {
-      title: "Title",
-      desc: "At e-GymBro, we believe that technology can help us achieve our fitness goals faster and more efficiently. Our machine learning technology also allows us to provide you with customized workout plans that are designed to help you achieve your specific goals, whether you're looking to lose weight, build muscle, or improve your overall fitness. Come visit us today and experience the power of fitness enhanced by machine learning for yourself!",
+      title: "Welcome To e-GymBro",
+      desc: "We are passionate about helping you achieve your fitness goals and maximize your gains! We understand that proper form and technique are crucial for effective workouts and preventing injuries. That's why we have combined the power of technology to provide you with real-time pose corrections and guidance with your workouts.",
       src: "https://res.cloudinary.com/dhnkuonev/image/upload/v1683639386/21852210_fitness_v_02_bdmfx2.jpg",
     },
     {
-      title: "Title",
-      desc: "At e-GymBro, we believe that technology can help us achieve our fitness goals faster and more efficiently. Our machine learning technology also allows us to provide you with customized workout plans that are designed to help you achieve your specific goals, whether you're looking to lose weight, build muscle, or improve your overall fitness. Come visit us today and experience the power of fitness enhanced by machine learning for yourself!",
+      title: "Our Vision",
+      desc: "With e-GymBro, you'll achieve better results, reduce the risk of injuries, and build a solid foundation for your fitness endeavors. Start your journey toward perfecting your form and maximizing your workouts today with e-GymBro! Maybe drop a hello to our assistive chatbot - ChadGPT while you're at it!",
       src: "https://res.cloudinary.com/dhnkuonev/image/upload/v1683639294/23581072_2008.i605.001.P.m005.c20.fitness_people_set-16_fsqleb.jpg",
     },
     {
-      title: "Title",
-      desc: "At e-GymBro, we believe that technology can help us achieve our fitness goals faster and more efficiently. Our machine learning technology also allows us to provide you with customized workout plans that are designed to help you achieve your specific goals, whether you're looking to lose weight, build muscle, or improve your overall fitness. Come visit us today and experience the power of fitness enhanced by machine learning for yourself!",
+      title: "How does it work",
+      desc: "By leveraging the capabilities of AI and image processing, we offer you an innovative solution that acts as your virtual personal trainer. Just set up your device on a stable surface, and our intelligent web app will use the device's camera to capture your movements. We instantly analyze your posture and provide real-time feedback to help you make necessary corrections.",
       src: "https://res.cloudinary.com/dhnkuonev/image/upload/v1683639291/18953918_6048743_joyx7d.jpg",
     },
     {
-      title: "Title",
-      desc: "At e-GymBro, we believe that technology can help us achieve our fitness goals faster and more efficiently. Our machine learning technology also allows us to provide you with customized workout plans that are designed to help you achieve your specific goals, whether you're looking to lose weight, build muscle, or improve your overall fitness. Come visit us today and experience the power of fitness enhanced by machine learning for yourself!",
+      title: "No peeping!",
+      desc: "At e-GymBro, we prioritize your privacy and security. Your workout sessions and personal data remain confidential and are never shared.",
       src: "https://res.cloudinary.com/dhnkuonev/image/upload/v1683637811/7454944_3641352_nenslv.jpg",
     },
   ],
