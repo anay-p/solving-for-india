@@ -15,6 +15,7 @@ import Shoulderpress from "./components/mediapipe/Shoulderpress";
 import SignIn from "./components/SignIn/SignIn";
 import SignUp from "./components/SignIn/SignUp";
 import UserData from "./components/UserData/Userform";
+import ErrorPage from "./components/ErrorPage";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
           <Route path="/log-in" Component={SignIn} exact />
           <Route path="/sign-up" Component={SignUp} exact />
           <Route path="/userdata" Component={UserData} exact />
+          <Route path="/*" Component={ErrorPage} exact />
         </Routes>
         {/* <Dashboard /> */}
       </div>
