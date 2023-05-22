@@ -40,15 +40,15 @@ const Signup = () => {
       <div className="appForm">
         <div className="pageSwitcher">
           <NavLink
-            to="/login"
+            to="/log-in"
             activeClassName="pageSwitcherItem-active"
             className="pageSwitcherItem"
           >
-            Sign In
+            Log In
           </NavLink>
           <NavLink
             exact
-            to="/signup"
+            to="/sign-up"
             activeClassName="pageSwitcherItem-active"
             className="pageSwitcherItem"
           >
@@ -58,7 +58,7 @@ const Signup = () => {
         <div className="formTitle">
           <NavLink
             exact
-            to="/signup"
+            to="/sign-up"
             activeClassName="formTitleLink-active"
             className="formTitleLink"
           >
@@ -121,7 +121,7 @@ const Signup = () => {
               </div>
               <div className="formField">
                 <label className="formFieldLabel" htmlFor="height">
-                  Height(in cms)
+                  Height (in cms)
                 </label>
                 <input
                   type="number"
@@ -134,7 +134,7 @@ const Signup = () => {
               </div>
               <div className="formField">
                 <label className="formFieldLabel" htmlFor="height">
-                  Weight(in kg)
+                  Weight (in kg)
                 </label>
                 <input
                   type="number"
@@ -153,17 +153,17 @@ const Signup = () => {
                   name="hasAgreed"
                   required
                 />{" "}
-                I agree all statements in{" "}
+                I agree to the{" "}
                 <a href="null" className="formFieldTermsLink">
-                  terms of service
+                  Terms of Service
                 </a>
               </label>
             </div>
 
             <div className="formField">
               <button className="formFieldButton">Sign Up</button>{" "}
-              <Link to="/login" className="formFieldLink">
-                I'm already member
+              <Link to="/log-in" className="formFieldLink">
+                I'm already a member
               </Link>
             </div>
           </form>

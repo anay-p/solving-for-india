@@ -36,11 +36,11 @@ const SignIn = () => {
                 activeClassName="pageSwitcherItem-active"
                 className="pageSwitcherItem"
               >
-                Sign In
+                Log In
               </NavLink>
               <NavLink
                 exact
-                to="/signup"
+                to="/sign-up"
                 activeClassName="pageSwitcherItem-active"
                 className="pageSwitcherItem"
               >
@@ -53,7 +53,7 @@ const SignIn = () => {
                 activeClassName="formTitleLink-active"
                 className="formTitleLink"
               >
-                Sign In
+                Log In
               </NavLink>{" "}
 
 
@@ -90,9 +90,9 @@ const SignIn = () => {
 
 
           <div className="formField">
-            <button className="formFieldButton">Sign In</button>{" "}
-            <Link to="/signup" className="formFieldLink">
-              I need to register
+            <button className="formFieldButton">Log In</button>{" "}
+            <Link to="/sign-up" className="formFieldLink">
+              I want to register
             </Link>
           </div>
         </form>

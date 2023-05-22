@@ -37,8 +37,8 @@ function App() {
             element={<Shoulderpress exercise={"shoulderpress"} />}
           />
           <Route path="/dashboard" element={<Dashboard />} exact />
-          <Route path="/login" Component={SignIn} exact />
-          <Route path="/signup" Component={SignUp} exact />
+          <Route path="/log-in" Component={SignIn} exact />
+          <Route path="/sign-up" Component={SignUp} exact />
           <Route path="/userdata" Component={UserData} exact />
         </Routes>
         {/* <Dashboard /> */}

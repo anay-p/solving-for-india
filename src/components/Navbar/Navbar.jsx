@@ -6,9 +6,11 @@ import "./Navbar.css";
 import Button from "react-bootstrap/Button";
 import { signOut, onAuthStateChanged } from "@firebase/auth";
 import { auth } from "../../firebase";
+import { useNavigate } from "react-router";
 
 const NavbarComp = () => {
   const [signedIn, setSignedIn] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -40,7 +42,10 @@ const NavbarComp = () => {
               <Nav.Link className="linkText" href="/exercises">
                 Workouts
               </Nav.Link>
-              <Nav.Link href="/signup">
+              <Nav.Link className="linkText" href="/dashboard">
+                Dashboard
+              </Nav.Link>
+              <Nav.Link href="/sign-up">
                 <Button className="button3" variant="dark">
                   Sign Up
                 </Button>
@@ -72,7 +77,13 @@ const NavbarComp = () => {
               <Nav.Link className="linkText" href="/exercises">
                 Workouts
               </Nav.Link>
-              <Button className="button3" variant="dark" onClick={() => {signOut(auth);}}>
+              <Nav.Link className="linkText" href="/dashboard">
+                Dashboard
+              </Nav.Link>
+              <Button className="button3" variant="dark" onClick={() => {
+                signOut(auth);
+                navigate("/log-in");
+                }}>
                 Sign Out
               </Button>
             </Nav>
