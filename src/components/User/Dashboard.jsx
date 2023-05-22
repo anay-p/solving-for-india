@@ -10,7 +10,7 @@ import { Chartx } from "./Chart";
 import NavbarComp from "../Navbar/Navbar";
 import { auth, db } from "../../firebase";
 import { useNavigate } from "react-router";
-import { onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import { collection, query, where, getDocs } from "firebase/firestore";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -58,7 +58,6 @@ const options = {
 };
 
 const Dashboard = () => {
-
   const [uid, setUid] = useState("");
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
@@ -70,8 +69,9 @@ const Dashboard = () => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setUid(user.uid);
-        getDocs(query(collection(db, "users"), where("ID", "==", user.uid)))
-        .then((querySnapshot) => {
+        getDocs(
+          query(collection(db, "users"), where("ID", "==", user.uid))
+        ).then((querySnapshot) => {
           const userData = querySnapshot.docs[0].data();
           setName(userData["Name"]);
           setAge(userData["Age"]);
@@ -79,17 +79,40 @@ const Dashboard = () => {
           setHeight(userData["Height"]);
         });
       } else {
-        navigate("/login")
+        navigate("/login");
       }
     });
-  }, [])
+  }, []);
 
   if (!height) {
-    return (<h1>Loading...</h1>);
+    return (
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          marginTop: "20%",
+        }}
+      >
+        <div className="loading">
+          <div></div>
+          <div></div>
+        </div>
+        <h1>Loading...</h1>
+      </div>
+    );
   } else {
     return (
       <>
         <NavbarComp />
+        <button
+          onClick={() => {
+            signOut(auth);
+          }}
+        >
+          Log out
+        </button>
         <div className="sectioncontainer">
           <h1 style={{ textDecoration: "underline" }}>Dashboard</h1>
           <div class="main">
@@ -204,7 +227,9 @@ const Dashboard = () => {
                   >
                     Recommended Activity
                   </Card.Header>
-                  <Card.Body style={{ paddingTop: "2rem", textAlign: "center" }}>
+                  <Card.Body
+                    style={{ paddingTop: "2rem", textAlign: "center" }}
+                  >
                     {/* <Card.Title></Card.Title> */}
                     <Card.Text
                       style={{
