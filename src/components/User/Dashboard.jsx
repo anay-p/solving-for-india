@@ -59,6 +59,7 @@ const options = {
 };
 
 const Dashboard = () => {
+  const [uid, setUid] = useState("");
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [weight, setWeight] = useState("");
@@ -69,6 +70,7 @@ const Dashboard = () => {
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
+        setUid(user.uid);
         const docRef = doc(db, "users", user.uid);
         getDoc(docRef)
         .then((docSnap) => {
@@ -281,12 +283,12 @@ const Dashboard = () => {
                       textDecoration: "underline",
                     }}
                   >
-                    Activity Tracker
+                    Push Ups
                   </Card.Header>
                   <Card.Body>
                     {/* <Card.Title>Primary Card Title</Card.Title> */}
                     <Card.Text>
-                      <Chart2 />
+                      <Chart2 uid={uid} exercise="push_ups" />
                     </Card.Text>
                   </Card.Body>
                 </Card>

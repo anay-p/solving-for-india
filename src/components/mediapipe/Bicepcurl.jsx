@@ -265,13 +265,12 @@ function Bicepcurl(props) {
   }, []);
 
   function getDate() {
-    var today = new Date();
-    var dd = String(today.getDate()).padStart(2, '0');
-    var mm = String(today.getMonth() + 1).padStart(2, '0');
-    var yyyy = today.getFullYear();
+    const today = new Date();
+    const dd = today.getDate();
+    const mm = today.getMonth() + 1;
+    const yyyy = today.getFullYear();
 
-    today = dd + '_' + mm + '_' + yyyy;
-    return today;
+    return yyyy*10000 + mm*100 + dd;
   }
 
   async function updateCount(setDone) {
