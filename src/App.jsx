@@ -40,7 +40,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} exact />
           <Route path="/log-in" Component={SignIn} exact />
           <Route path="/sign-up" Component={SignUp} exact />
-          <Route path="/userform" Component={UserData} exact />
+          <Route path="/additional-info" Component={UserData} exact />
           <Route path="/*" Component={ErrorPage} exact />
         </Routes>
         {/* <Dashboard /> */}

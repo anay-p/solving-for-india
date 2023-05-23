@@ -30,7 +30,7 @@ const Signup = () => {
           ID: user.uid,
         };
         createUserDocument(userx);
-        navigate("/dashboard");
+        navigate("/additional-info");
         // ...
       })
       .catch((error) => {

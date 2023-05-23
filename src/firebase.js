@@ -24,7 +24,7 @@ export const createUserDocument = async (userx) => {
   // }
   addDoc(userRef,userx)
   .then(docRef => {
-    console.log("Document has been added successfully");
+    console.log("User data added successfully");
   })
   .catch(error => {
     console.log(error);

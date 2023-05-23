@@ -12,6 +12,7 @@ import { auth, db } from "../../firebase";
 import { useNavigate } from "react-router";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { collection, query, where, getDocs } from "firebase/firestore";
+import { NavLink } from "react-bootstrap";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 const data = {
@@ -63,6 +64,7 @@ const Dashboard = () => {
   const [age, setAge] = useState("");
   const [weight, setWeight] = useState("");
   const [height, setHeight] = useState("");
+  const [bodyFat, setBodyFat] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -77,12 +79,25 @@ const Dashboard = () => {
           setAge(userData["Age"]);
           setWeight(userData["Weight"]);
           setHeight(userData["Height"]);
+          setBodyFat(userData["BodyFat"]);
         });
       } else {
         navigate("/log-in")
       }
     });
   }, []);
+
+  const bodyFatLabel = () => {
+    if (bodyFat != undefined) {
+      return (`Body Fat Percentage: ${parseFloat(bodyFat).toFixed(2)}%`);
+    } else {
+      return (
+        <NavLink to="/additional-info">
+          Body Fat Percentage:
+        </NavLink>
+      );
+    }
+  };
 
   if (!height) {
     return (
@@ -131,8 +146,8 @@ const Dashboard = () => {
               <h2>{name}</h2>
               <h3>Age: {age}</h3>
               <h3>Weight: {weight} kg</h3>
-              <h3>Height: {height}cm</h3>
-              <h3>BMI: Overweight</h3>
+              <h3>Height: {height} cm</h3>
+              <h3>{bodyFatLabel()}</h3>
             </div>
             <div className="dashboard">
               <div className="headdash">
