@@ -8,9 +8,9 @@ import "./Sign.css";
 const Signup = () => {
   const navigate = useNavigate();
   const [name, setName] = useState("");
-  const [age, setAge] = useState();
-  const [height, setHeight] = useState();
-  const [weight, setWeight] = useState();
+  const [age, setAge] = useState("");
+  const [height, setHeight] = useState("");
+  const [weight, setWeight] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -22,14 +22,13 @@ const Signup = () => {
         // Signed in
         const user = userCredential.user;
         let userx = {
-          Name: name,
-          Email: email,
-          Age: age,
-          Height: height,
-          Weight: weight,
-          ID: user.uid,
+          "name": name,
+          "email": email,
+          "age": age,
+          "height": height,
+          "weight": weight,
         };
-        createUserDocument(userx);
+        createUserDocument(user.uid, userx);
         navigate("/additional-info");
         // ...
       })
@@ -125,7 +124,7 @@ const Signup = () => {
                   Height (in cm)
                 </label>
                 <input
-                  type="number"
+                  type="text"
                   id="height"
                   className="formFieldInput"
                   placeholder="Enter your height"
@@ -138,7 +137,7 @@ const Signup = () => {
                   Weight (in kg)
                 </label>
                 <input
-                  type="number"
+                  type="text"
                   id="weight"
                   className="formFieldInput"
                   placeholder="Enter your weight"

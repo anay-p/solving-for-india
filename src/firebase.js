@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { getFirestore, collection, addDoc } from 'firebase/firestore';
+import { getFirestore, setDoc, doc } from 'firebase/firestore';
+
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_API_KEY,
   authDomain: import.meta.env.VITE_AUTH_DOMAIN,
@@ -14,16 +15,14 @@ const app = initializeApp(firebaseConfig);
 
 export const auth = getAuth(app);
 export const db = getFirestore(app);
-export const createUserDocument = async (userx) => {
-  if (!userx) return;
-  const userRef=collection(db, 'users');
+export const createUserDocument = async (uid, userx) => {
   // const snapshot=await userRef.get();
   // if(!snapshot.exists){
   //   const {email}=userx.Email;
   //   const {displayName}=userx.Name;
   // }
-  addDoc(userRef,userx)
-  .then(docRef => {
+  setDoc(doc(db, "users", uid), userx)
+  .then(() => {
     console.log("User data added successfully");
   })
   .catch(error => {

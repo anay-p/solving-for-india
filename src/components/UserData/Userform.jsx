@@ -2,14 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth, db } from "../../firebase";
 import "./Userdata.css";
-import {
-  updateDoc,
-  getDocs,
-  query,
-  collection,
-  where,
-  doc,
-} from "firebase/firestore";
+import { updateDoc, doc } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
 
 const UserData = () => {
@@ -41,25 +34,19 @@ const UserData = () => {
     e.preventDefault();
 
     const data = {
-      Neck: neck,
-      Chest: chest,
-      Abdomen: abdomen,
-      Hip: hip,
-      Thigh: thigh,
-      Knee: knee,
-      Ankle: ankle,
-      Biceps: biceps,
-      Forearm: forearm,
-      Wrist: wrist,
+      "neck": neck,
+      "chest": chest,
+      "abdomen": abdomen,
+      "hip": hip,
+      "thigh": thigh,
+      "knee": knee,
+      "ankle": ankle,
+      "biceps": biceps,
+      "forearm": forearm,
+      "wrist": wrist,
     };
 
-    getDocs(query(collection(db, "users"), where("ID", "==", uid))).then(
-      (querySnapshot) => {
-        const docId = querySnapshot.docs[0].id;
-        updateDoc(doc(db, "users", docId), data);
-      }
-    );
-
+    updateDoc(doc(db, "users", uid), data);
     navigate("/dashboard");
   };
 
@@ -98,7 +85,7 @@ const UserData = () => {
                   Neck Circumference (in cm)
                 </label>
                 <input
-                  type="number"
+                  type="text"
                   id="neck"
                   className="formFieldInput"
                   placeholder="Enter your neck circumference"
@@ -111,7 +98,7 @@ const UserData = () => {
                   Chest Circumference (in cm)
                 </label>
                 <input
-                  type="number"
+                  type="text"
                   id="chest"
                   className="formFieldInput"
                   placeholder="Enter your chest circumference"
@@ -124,7 +111,7 @@ const UserData = () => {
                   Abdomen Circumference (in cm)
                 </label>
                 <input
-                  type="number"
+                  type="text"
                   id="abdomen"
                   className="formFieldInput"
                   placeholder="Enter your abdomen circumference"
@@ -137,7 +124,7 @@ const UserData = () => {
                   Hip Circumference (in cm)
                 </label>
                 <input
-                  type="number"
+                  type="text"
                   id="hip"
                   className="formFieldInput"
                   placeholder="Enter your hip circumference"
@@ -150,7 +137,7 @@ const UserData = () => {
                   Thigh Circumference (in cm)
                 </label>
                 <input
-                  type="number"
+                  type="text"
                   id="thigh"
                   className="formFieldInput"
                   placeholder="Enter your thigh circumference"
@@ -163,7 +150,7 @@ const UserData = () => {
                   Knee Circumference (in cm)
                 </label>
                 <input
-                  type="number"
+                  type="text"
                   id="knee"
                   className="formFieldInput"
                   placeholder="Enter your knee circumference"
@@ -176,7 +163,7 @@ const UserData = () => {
                   Ankle Circumference (in cm)
                 </label>
                 <input
-                  type="number"
+                  type="text"
                   id="ankle"
                   className="formFieldInput"
                   placeholder="Enter your ankle circumference"
@@ -189,7 +176,7 @@ const UserData = () => {
                   Biceps Circumference (in cm)
                 </label>
                 <input
-                  type="number"
+                  type="text"
                   id="biceps"
                   className="formFieldInput"
                   placeholder="Enter your biceps circumference"
@@ -202,7 +189,7 @@ const UserData = () => {
                   Forearm Circumference (in cm)
                 </label>
                 <input
-                  type="number"
+                  type="text"
                   id="forearm"
                   className="formFieldInput"
                   placeholder="Enter your forearm circumference"
@@ -215,7 +202,7 @@ const UserData = () => {
                   Wrist Circumference (in cm)
                 </label>
                 <input
-                  type="number"
+                  type="text"
                   id="wrist"
                   className="formFieldInput"
                   placeholder="Enter your wrist circumference"

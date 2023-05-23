@@ -11,8 +11,8 @@ import NavbarComp from "../Navbar/Navbar";
 import { auth, db } from "../../firebase";
 import { useNavigate } from "react-router";
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import { collection, query, where, getDocs } from "firebase/firestore";
-import { NavLink } from "react-bootstrap";
+import { getDoc, doc, onSnapshot } from "firebase/firestore";
+import { Link } from "react-router-dom";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 const data = {
@@ -59,7 +59,6 @@ const options = {
 };
 
 const Dashboard = () => {
-  const [uid, setUid] = useState("");
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [weight, setWeight] = useState("");
@@ -70,16 +69,21 @@ const Dashboard = () => {
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        setUid(user.uid);
-        getDocs(
-          query(collection(db, "users"), where("ID", "==", user.uid))
-        ).then((querySnapshot) => {
-          const userData = querySnapshot.docs[0].data();
-          setName(userData["Name"]);
-          setAge(userData["Age"]);
-          setWeight(userData["Weight"]);
-          setHeight(userData["Height"]);
-          setBodyFat(userData["BodyFat"]);
+        const docRef = doc(db, "users", user.uid);
+        getDoc(docRef)
+        .then((docSnap) => {
+          const userx = docSnap.data();
+          setName(userx["name"]);
+          setAge(userx["age"]);
+          setWeight(userx["weight"]);
+          setHeight(userx["height"]);
+        });
+        const unsub = onSnapshot(docRef, (docSnap) => {
+          const bodyFat = docSnap.get("body_fat")
+          if (bodyFat) {
+            setBodyFat(bodyFat);
+            unsub();
+          }
         });
       } else {
         navigate("/log-in")
@@ -88,13 +92,13 @@ const Dashboard = () => {
   }, []);
 
   const bodyFatLabel = () => {
-    if (bodyFat != undefined) {
-      return (`Body Fat Percentage: ${parseFloat(bodyFat).toFixed(2)}%`);
+    if (bodyFat) {
+      return (`Body Fat: ${parseFloat(bodyFat).toFixed(2)}%`);
     } else {
       return (
-        <NavLink to="/additional-info">
-          Body Fat Percentage:
-        </NavLink>
+        <Link to="/additional-info">
+          Body Fat: -
+        </Link>
       );
     }
   };
