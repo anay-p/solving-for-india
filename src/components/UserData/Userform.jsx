@@ -2,7 +2,14 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth, db } from "../../firebase";
 import "./Userdata.css";
-import { updateDoc, getDocs, query, collection, where, doc } from "firebase/firestore";
+import {
+  updateDoc,
+  getDocs,
+  query,
+  collection,
+  where,
+  doc,
+} from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
 
 const UserData = () => {
@@ -25,7 +32,7 @@ const UserData = () => {
       if (user) {
         setUid(user.uid);
       } else {
-        navigate("/log-in")
+        navigate("/log-in");
       }
     });
   }, []);
@@ -34,26 +41,26 @@ const UserData = () => {
     e.preventDefault();
 
     const data = {
-      "Neck": neck,
-      "Chest": chest,
-      "Abdomen": abdomen,
-      "Hip": hip,
-      "Thigh": thigh,
-      "Knee": knee,
-      "Ankle": ankle,
-      "Biceps": biceps,
-      "Forearm": forearm,
-      "Wrist": wrist
+      Neck: neck,
+      Chest: chest,
+      Abdomen: abdomen,
+      Hip: hip,
+      Thigh: thigh,
+      Knee: knee,
+      Ankle: ankle,
+      Biceps: biceps,
+      Forearm: forearm,
+      Wrist: wrist,
     };
 
-    getDocs(
-      query(collection(db, "users"), where("ID", "==", uid))
-    ).then((querySnapshot) => {
-      const docId = querySnapshot.docs[0].id;
-      updateDoc(doc(db, "users", docId), data);
-    });
+    getDocs(query(collection(db, "users"), where("ID", "==", uid))).then(
+      (querySnapshot) => {
+        const docId = querySnapshot.docs[0].id;
+        updateDoc(doc(db, "users", docId), data);
+      }
+    );
 
-    navigate("/dashboard")
+    navigate("/dashboard");
   };
 
   const skip = () => {
@@ -67,18 +74,25 @@ const UserData = () => {
           <div
             activeClassName="formTitleLink-active"
             className="formTitleLink"
+            style={{
+              fontWeight: "500",
+              marginBottom: "10px",
+              color: "whitesmoke",
+            }}
           >
             Let us get to know you better...
           </div>
-          <h2>Please enter your body measurements</h2>
-          <h5>This data will solely be used to find your body fat percentage using our advanced machine learning technology</h5>
+          <h2 style={{ color: "#f6740a", marginBottom: "0.5rem" }}>
+            Please enter your body measurements
+          </h2>
+          <h5 style={{ fontWeight: "400" }}>
+            This data will solely be used to find your body fat percentage using
+            our advanced machine learning technology
+          </h5>
         </div>
         <div className="formCenter">
           <form className="formFields" onSubmit={onSubmit}>
-
             <div className="formgroup">
-
-
               <div className="formField">
                 <label className="formFieldLabel" htmlFor="height">
                   Neck Circumference (in cm)
@@ -212,7 +226,9 @@ const UserData = () => {
             </div>
             <div className="formFieldbut">
               <button className="formFieldButton">Submit</button>
-              <button className="formFieldButton" onClick={skip} type="button">Skip</button>
+              <button className="formFieldButton" onClick={skip} type="button">
+                Skip
+              </button>
             </div>
           </form>
         </div>
