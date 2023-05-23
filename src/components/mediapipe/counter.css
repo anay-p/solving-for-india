@@ -4,9 +4,41 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  height:730px;
 }
 
 .warningtext {
   color: #f6740a;
   font-size: x-large;
+}
+.pageSwitcher {
+  display: flex;
+  justify-content: flex-end;
+  /* margin-bottom: 5%; */
+}
+
+.pageSwitcherItem {
+  background-color: #40434e;
+  color: #9da6b1;
+  padding: 10px 25px;
+  cursor: pointer;
+  font-size: 0.9em;
+  border: none;
+  outline: none;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.pageSwitcherItem-active {
+  background-color: #6b5b95;
+  color: white;
+}
+
+.pageSwitcherItem:first-child {
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+.pageSwitcherItem:last-child {
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
 }

@@ -9,7 +9,7 @@ import bicepcurls from "./bicepcurls.png";
 import crunches from "./crunches.png";
 import pushups from "./pushup.png";
 import squats from "./squats.png";
-import { Link } from "react-router-dom";
+import { Link,NavLink } from "react-router-dom";
 import "./counter.css";
 import { useUserMedia } from "./getUSerMedia";
 const styles = {
@@ -248,6 +248,16 @@ function Squat(props) {
   return (
     <div className="background">
       <div style={styles.selectBox}>
+      <div className="pageSwitcher">
+          <NavLink
+            exact
+            to="/"
+            activeClassName="pageSwitcherItem-active"
+            className="pageSwitcherItem"
+          >
+            Home
+          </NavLink>
+        </div>
         <h1>Workout</h1>
         <img src={imgSource} width="300" alternate="bicepimage" />
         <br></br>
@@ -279,13 +289,6 @@ function Squat(props) {
       </div>
       <Webcam ref={webcamRef} style={styles.webcam} />
       <canvas ref={canvasRef} style={styles.webcam} />
-      <div style={styles.back}>
-        <Link to="/counter">
-          <Button size="large" variant="contained" color="primary">
-            Back
-          </Button>
-        </Link>
-      </div>
     </div>
   );
 }

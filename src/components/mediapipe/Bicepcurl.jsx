@@ -6,10 +6,9 @@ import { useRef, useEffect } from "react";
 import angleBetweenThreePoints from "./angle";
 import Button from "react-bootstrap/Button";
 import bicepcurls from "./BicepCurl.png";
-
 import pushups from "./pushup.png";
 import squats from "./squats.png";
-import { Link } from "react-router-dom";
+import { Link,NavLink } from "react-router-dom";
 import { useUserMedia } from "./getUSerMedia";
 import "./counter.css";
 import { auth, db } from "../../firebase";
@@ -310,7 +309,18 @@ function Bicepcurl(props) {
 
   return (
     <div className="background">
+       
       <div style={styles.selectBox}>
+      <div className="pageSwitcher">
+          <NavLink
+            exact
+            to="/"
+            activeClassName="pageSwitcherItem-active"
+            className="pageSwitcherItem"
+          >
+            Home
+          </NavLink>
+        </div>
         <h1>Workout</h1>
         <img src={bicepcurls} width="300" alternate="bicepimage" />
         <br></br>
@@ -342,13 +352,13 @@ function Bicepcurl(props) {
       </div>
       <Webcam ref={webcamRef} style={styles.webcam} />
       <canvas ref={canvasRef} style={styles.webcam} />
-      <div style={styles.back}>
-        <Link to="/counter">
+      {/* <div style={styles.back}>
+        <Link to="/">
           <Button size="large" variant="contained" color="primary">
             Back
           </Button>
         </Link>
-      </div>
+      </div> */}
     </div>
   );
 }
