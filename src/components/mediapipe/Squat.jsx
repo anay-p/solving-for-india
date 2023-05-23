@@ -148,6 +148,7 @@ function Squat(props) {
         //console.log("test angle ",angle)
         if (dir === 0) {
           //count.current = count.current + 0.5
+          // count = count + 1;
           console.log(count, " ", dir, " decrement ", angle);
           dir = 1;
         }
@@ -160,12 +161,12 @@ function Squat(props) {
         }
       }
 
-      if (anklea < 60) {
+      if (anklea < 70) {
         setConf(1);
       } else {
         setConf(0);
       }
-      if (hipa < 60) {
+      if (hipa < 80) {
         setConf2(1);
       } else {
         setConf2(0);
@@ -211,7 +212,7 @@ function Squat(props) {
       locateFile: (file) => {
         return `https://cdn.jsdelivr.net/npm/@mediapipe/pose@0.5.1675469404/${file}`;
       },
-    });
+    },[]);
     pose.setOptions({
       modelComplexity: 1,
       smoothLandmarks: true,
