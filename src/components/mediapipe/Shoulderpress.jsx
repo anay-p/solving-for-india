@@ -75,7 +75,7 @@ let angle = 0;
 
 function Shoulderpress(props) {
   //const [exr, setExr] = useState("bicepCurls");
-  const { stream, error } = useUserMedia({ audio: true, video: true });
+  const { stream, error } = useUserMedia({ video: true });
   let imgSource;
   if (props.exercise === "bicepCurls") {
     imgSource = bicepcurls;

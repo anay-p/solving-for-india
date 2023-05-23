@@ -76,7 +76,7 @@ let angle = 0;
 let hipa = 0;
 function PushUp(props) {
   //const [exr, setExr] = useState("bicepCurls");
-  const { stream, error } = useUserMedia({ audio: true, video: true });
+  const { stream, error } = useUserMedia({ video: true });
   const [conf, setConf] = useState(0);
   let imgSource;
   if (props.exercise === "bicepCurls") {

@@ -78,7 +78,7 @@ let hipa = 0;
 let anklea = 0;
 function Squat(props) {
   //const [exr, setExr] = useState("bicepCurls");
-  const { stream, error } = useUserMedia({ audio: true, video: true });
+  const { stream, error } = useUserMedia({ video: true });
   const [conf, setConf] = useState(0);
   const [conf2, setConf2] = useState(0);
   let imgSource;
