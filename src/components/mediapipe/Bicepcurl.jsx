@@ -8,7 +8,7 @@ import Button from "react-bootstrap/Button";
 import bicepcurls from "./BicepCurl.png";
 import pushups from "./pushup.png";
 import squats from "./squats.png";
-import { Link,NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useUserMedia } from "./getUSerMedia";
 import "./counter.css";
 import { auth, db } from "../../firebase";
@@ -247,13 +247,13 @@ function Bicepcurl(props) {
   }, []);
   //console.log(props)
   function resetCount() {
-    console.log("clicked");
     count = 0;
     dir = 0;
   }
 
   const [signedIn, setSignedIn] = useState(false);
   const [uid, setUid] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -274,14 +274,14 @@ function Bicepcurl(props) {
     return today;
   }
 
-  function updateCount() {
+  async function updateCount(setDone) {
     if (!signedIn) {
       alert("You aren't signed in! Please sign up to enable exercise tracking.");
     } else if (count == 0) {
       alert("You haven't done any workout yet!")
     } else {
       const docRef = doc(db, "exercise_data", uid);
-      getDoc(docRef)
+      await getDoc(docRef)
       .then((docSnap) => {
         const userx = docSnap.data();
         const date = getDate();
@@ -304,12 +304,17 @@ function Bicepcurl(props) {
           }
         }
       });
+      if (setDone) {
+        resetCount();
+      } else {
+        navigate("/exercises");
+      }
     }
   }
 
   return (
     <div className="background">
-       
+
       <div style={styles.selectBox}>
       <div className="pageSwitcher">
           <NavLink
@@ -339,6 +344,24 @@ function Bicepcurl(props) {
             {conf ? <h5>Lock Shoulder in Position</h5> : <h5></h5>}
           </div>
           <br></br>
+          <Button
+            style={{ top: 150 }}
+            size="large"
+            variant="contained"
+            color="primary"
+            onClick={() => {updateCount(true)}}
+          >
+            Set Completed
+          </Button>
+          <Button
+            style={{ top: 150 }}
+            size="large"
+            variant="contained"
+            color="primary"
+            onClick={() => {updateCount(false)}}
+          >
+            Exercise Completed
+          </Button>
           <Button
             style={{ top: 150 }}
             size="large"

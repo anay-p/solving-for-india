@@ -9,9 +9,12 @@ import bicepcurls from "./bicepcurls.png";
 import crunches from "./crunches.png";
 import pushups from "./pushup.png";
 import squats from "./squats.png";
-import { Link,NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./counter.css";
 import { useUserMedia } from "./getUSerMedia";
+import { auth, db } from "../../firebase";
+import { onAuthStateChanged } from "firebase/auth";
+import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 const styles = {
   webcam: {
     position: "absolute",
@@ -245,6 +248,67 @@ function Squat(props) {
     dir = 0;
   }
 
+  const [signedIn, setSignedIn] = useState(false);
+  const [uid, setUid] = useState("");
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setSignedIn(true);
+        setUid(user.uid);
+      }
+    });
+  }, []);
+
+  function getDate() {
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0');
+    var yyyy = today.getFullYear();
+
+    today = dd + '_' + mm + '_' + yyyy;
+    return today;
+  }
+
+  async function updateCount(setDone) {
+    if (!signedIn) {
+      alert("You aren't signed in! Please sign up to enable exercise tracking.");
+    } else if (count == 0) {
+      alert("You haven't done any workout yet!")
+    } else {
+      const docRef = doc(db, "exercise_data", uid);
+      await getDoc(docRef)
+      .then((docSnap) => {
+        const userx = docSnap.data();
+        const date = getDate();
+        const data = {}
+        data[date] = {
+          "squats": count
+        }
+        if (!userx) {
+          setDoc(docRef, data);
+        } else {
+          if (!userx[date]) {
+            updateDoc(docRef, data);
+          } else {
+            if (!userx[date]["squats"]) {
+              userx[date]["squats"] = count;
+            } else {
+              userx[date]["squats"] += count;
+            }
+            updateDoc(docRef, userx);
+          }
+        }
+      });
+      if (setDone) {
+        resetCount();
+      } else {
+        navigate("/exercises");
+      }
+    }
+  }
+
   return (
     <div className="background">
       <div style={styles.selectBox}>
@@ -276,6 +340,24 @@ function Squat(props) {
             {conf2 == 1 ? <h5>Upper body hunched forward</h5> : <h5></h5>}
           </div>
           <br></br>
+          <Button
+            style={{ top: 150 }}
+            size="large"
+            variant="contained"
+            color="primary"
+            onClick={() => {updateCount(true)}}
+          >
+            Set Completed
+          </Button>
+          <Button
+            style={{ top: 150 }}
+            size="large"
+            variant="contained"
+            color="primary"
+            onClick={() => {updateCount(false)}}
+          >
+            Exercise Completed
+          </Button>
           <Button
             style={{ top: 15 }}
             size="large"
