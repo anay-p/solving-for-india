@@ -1,6 +1,6 @@
 # e-GymBro
 
-<img src="src/components/Navbar/Draft2.png" width="150" alt="logo">
+<img src="https://res.cloudinary.com/dhnkuonev/image/upload/v1684901314/Draft6_bqcn2p.png" width="150" alt="logo">
 
 ### Overview
 
@@ -12,7 +12,7 @@ Many people in this world find themselves located nowhere near a gym, are unable
 
 ### Details
 
-The web app is hosted on a Google Compute Engine which is an N2D AMD instance running an Nginx server. The frontend makes use of React with Vite, and the MediaPipe library is used for tracking the movement of the user during exercise. The fitness assistant is a chatbot powered by Google DialogFlow. The server files are stored in a Google Cloud Bucket, and the domain name is registered using Cloud Domains alongside Cloud DNS, allowing for the web app to be easily accessible to anyone over the internet. In order to ensure that all traffic on the server is encrypted and thereby preserve the privacy of its users, Let’s Encrypt has been used to create a digital certificate enabling HTTPS.
+The web app is hosted on a Google Compute Engine which is an N2D AMD instance running an Nginx server. The front end makes use of React with Vite, and the MediaPipe library is used for tracking the movement of the user during exercise. The fitness assistant is a chatbot powered by Google DialogFlow. The server files are stored in a Google Cloud Bucket, and the domain name is registered using Cloud Domains alongside Cloud DNS, allowing the web app to be easily accessible to anyone over the internet. We make use of Firestore to store user data and display their exercise data on the user’s dashboard. We have trained a machine learning model that predicts the user’s body fat percentage and deployed it using Vertex AI, making use of Cloud Function to update the Firestore database. User authentication is handled via Identity platform. In order to ensure that all traffic on the server is encrypted and thereby preserve the privacy of its users, Let’s Encrypt has been used to create a digital certificate enabling HTTPS.
 
 ### Results
 
@@ -24,7 +24,7 @@ The web app is hosted on a Google Compute Engine which is an N2D AMD instance ru
 
 ### Future Plans
 
-We plan to upscale our product by adding a personalized diet and training system along with a fitness progress tracker. Immediately next in the pipeline, we have a machine learning based bodyfat prediction system that allows you to find out your bodyfat percentage without having to resort to the laborious tradition means of testing. Instead, the user only needs to plug in their age, height, weight and some other body measurements that can easily be taken at home.
+We plan to upscale our product by adding a personalized diet and training system along with a deep learning model to include yoga pose classification and correction. Furthermore, we are looking into integrating our web app with a fitness band to track the user’s vitals for better exercise and diet recommendation.
 
 ### Contributors:
 
