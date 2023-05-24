@@ -1,7 +1,7 @@
 import { React, useEffect, useState } from "react";
 import "./Dashboard.css";
 import Card from "react-bootstrap/Card";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { Chart as ChartJS, registerables } from "chart.js";
 import { Chart, Doughnut } from "react-chartjs-2";
 import Button from "react-bootstrap/Button";
 
@@ -14,7 +14,7 @@ import { onAuthStateChanged, signOut } from "firebase/auth";
 import { getDoc, doc, onSnapshot } from "firebase/firestore";
 import { Link } from "react-router-dom";
 
-ChartJS.register(ArcElement, Tooltip, Legend);
+ChartJS.register(...registerables);
 const data = {
   labels: ["Calories Burn", "Protein", "Carbs"],
   datasets: [
