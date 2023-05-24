@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Chart as ChartJS } from "chart.js/auto";
 import { Bar } from "react-chartjs-2";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../firebase";
@@ -24,8 +23,7 @@ export const Chart2 = (props) => {
   });
 
   useEffect(() => {
-    getDoc(doc(db, "exercise_data", props.uid))
-    .then((docSnap) => {
+    getDoc(doc(db, "exercise_data", props.uid)).then((docSnap) => {
       const userx = docSnap.data();
       var entries = Object.entries(userx);
       entries.sort((a, b) => Number(a[0]) - Number(b[0]));
@@ -78,7 +76,7 @@ export const Chart2 = (props) => {
 
   return (
     // I have added the width style because I don't know how to change the size of the chart propertly -Anay
-    <div style={{width:"40vw"}}>
+    <div style={{ width: "auto" }}>
       <Bar data={data} options={options}></Bar>
     </div>
   );

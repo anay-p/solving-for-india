@@ -26,6 +26,9 @@
 .dashboard {
   width: 50%;
   align-items: end;
+  display: grid;
+  grid-template: 250px / auto auto;
+  /* overflow: hidden; */
 }
 .main h1 {
   display: flex;
@@ -65,15 +68,17 @@
   gap: 20px;
 }
 .Tracker {
-  /* width: 90%; */
+  width: fit-content;
+  height: max-content;
   margin: auto;
-  margin-top: 5rem;
+  margin-bottom: 20px;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   background: rgba(41, 49, 77, 0.4);
   border: 2px solid #f6740a;
-  padding: 12px;
+  border-radius: 10px;
+  padding: 30px;
 }
 
 .activity {
