@@ -85,7 +85,7 @@ const NavbarComp = () => {
                 variant="dark"
                 onClick={() => {
                   signOut(auth);
-                  navigate("/");
+                  navigate("/log-in");
                 }}
               >
                 Log Out
