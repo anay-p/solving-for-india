@@ -9,7 +9,7 @@ import bicepcurls from "./bicepcurls.png";
 import crunches from "./crunches.png";
 import pushups from "./pushup.png";
 import squats from "./squats.png";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./counter.css";
 import { useUserMedia } from "./getUSerMedia";
 import { auth, db } from "../../firebase";
@@ -22,11 +22,13 @@ const styles = {
     marginLeft: "auto",
     left: 0,
     right: 800,
-    top: 10,
+    top: 30,
     textAlign: "center",
     zIndex: 9,
     width: 960,
-    height: 720,
+    height: "90vh",
+    border: "2px solid blue",
+    borderRadius: "10px",
   },
   countBox: {
     position: "absolute",
@@ -44,7 +46,7 @@ const styles = {
     marginLeft: "auto",
     left: 1000,
     right: 0,
-    top: 90,
+    top: "6%",
     padding: 40,
     textAlign: "center",
     width: 400,
@@ -211,11 +213,14 @@ function Squat(props) {
     dir = 0;
     //console.log(count.current)
     //console.log("rendered counter")
-    const pose = new Pose({
-      locateFile: (file) => {
-        return `https://cdn.jsdelivr.net/npm/@mediapipe/pose@0.5.1675469404/${file}`;
+    const pose = new Pose(
+      {
+        locateFile: (file) => {
+          return `https://cdn.jsdelivr.net/npm/@mediapipe/pose@0.5.1675469404/${file}`;
+        },
       },
-    },[]);
+      []
+    );
     pose.setOptions({
       modelComplexity: 1,
       smoothLandmarks: true,
@@ -263,29 +268,30 @@ function Squat(props) {
 
   function getDate() {
     var today = new Date();
-    var dd = String(today.getDate()).padStart(2, '0');
-    var mm = String(today.getMonth() + 1).padStart(2, '0');
+    var dd = String(today.getDate()).padStart(2, "0");
+    var mm = String(today.getMonth() + 1).padStart(2, "0");
     var yyyy = today.getFullYear();
 
-    today = dd + '_' + mm + '_' + yyyy;
+    today = dd + "_" + mm + "_" + yyyy;
     return today;
   }
 
   async function updateCount(setDone) {
     if (!signedIn) {
-      alert("You aren't signed in! Please sign up to enable exercise tracking.");
+      alert(
+        "You aren't signed in! Please sign up to enable exercise tracking."
+      );
     } else if (count == 0) {
-      alert("You haven't done any workout yet!")
+      alert("You haven't done any workout yet!");
     } else {
       const docRef = doc(db, "exercise_data", uid);
-      await getDoc(docRef)
-      .then((docSnap) => {
+      await getDoc(docRef).then((docSnap) => {
         const userx = docSnap.data();
         const date = getDate();
-        const data = {}
+        const data = {};
         data[date] = {
-          "squats": count
-        }
+          squats: count,
+        };
         if (!userx) {
           setDoc(docRef, data);
         } else {
@@ -312,16 +318,25 @@ function Squat(props) {
   return (
     <div className="background">
       <div style={styles.selectBox}>
-      <div className="pageSwitcher">
-          <NavLink
-            exact
-            to="/"
-            activeClassName="pageSwitcherItem-active"
-            className="pageSwitcherItem"
+        <Link to="/">
+          <Button
+            size="large"
+            variant="contained"
+            color="primary"
+            style={{
+              position: "absolute",
+              left: "10px",
+              top: "45px",
+              padding: "5px 10px",
+              borderRadius: "10px",
+              cursor: "pointer",
+              backgroundColor: "#0000004d",
+              border: "2px solid black",
+            }}
           >
             Home
-          </NavLink>
-        </div>
+          </Button>
+        </Link>
         <h1>Workout</h1>
         <img src={imgSource} width="300" alternate="bicepimage" />
         <br></br>
@@ -341,25 +356,53 @@ function Squat(props) {
           </div>
           <br></br>
           <Button
-            style={{ top: 150 }}
+            style={{
+              top: 150,
+              padding: "5px 10px",
+              borderRadius: "10px",
+              cursor: "pointer",
+              marginRight: "10px",
+              paddingRight: "5px",
+              border: "2px solid black",
+              backgroundColor: "#0000004d",
+            }}
             size="large"
             variant="contained"
             color="primary"
-            onClick={() => {updateCount(true)}}
+            onClick={() => {
+              updateCount(true);
+            }}
           >
             Set Completed
           </Button>
           <Button
-            style={{ top: 150 }}
+            style={{
+              top: 150,
+              padding: "5px 10px",
+              borderRadius: "10px",
+              cursor: "pointer",
+              border: "2px solid black",
+              backgroundColor: "#0000004d",
+            }}
             size="large"
             variant="contained"
             color="primary"
-            onClick={() => {updateCount(false)}}
+            onClick={() => {
+              updateCount(false);
+            }}
           >
             Exercise Completed
           </Button>
           <Button
-            style={{ top: 15 }}
+            style={{
+              top: 150,
+              padding: "5px 10px",
+              borderRadius: "10px",
+              cursor: "pointer",
+              marginTop: "10px",
+              border: "2px solid black",
+              backgroundColor: "#0000004d",
+            }}
             size="large"
             variant="contained"
             color="primary"
