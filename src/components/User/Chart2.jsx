@@ -50,12 +50,22 @@ export const Chart2 = (props) => {
   const options = {
     scales: {
       y: {
+        title: {
+          display: true,
+          text: "Reps",
+          color: "#fff",
+        },
         ticks: { color: "white", beginAtZero: true },
         grid: {
           color: "#393939",
         },
       },
       x: {
+        title: {
+          display: true,
+          text: "Date",
+          color: "#fff",
+        },
         ticks: { color: "white" },
         grid: {
           color: "#393939",
@@ -75,7 +85,6 @@ export const Chart2 = (props) => {
   };
 
   return (
-    // I have added the width style because I don't know how to change the size of the chart propertly -Anay
     <div style={{ width: "auto" }}>
       <Bar data={data} options={options}></Bar>
     </div>
