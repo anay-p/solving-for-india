@@ -285,8 +285,9 @@ function Shoulderpress(props) {
   return (
     <div className="background">
       <div style={styles.selectBox}>
-        <Link to="/">
-          <Button
+        {/* <Link to="/"> */}
+          <Button 
+          
             size="large"
             variant="contained"
             color="primary"
@@ -300,10 +301,14 @@ function Shoulderpress(props) {
               backgroundColor: "#0000004d",
               border: "2px solid black",
             }}
+            onClick={()=>{
+              
+              window.location.replace('/').reload();
+            }}
           >
             Home
           </Button>
-        </Link>
+        {/* </Link>  */}
         <h1>Workout</h1>
         <img src={imgSource} width="300" alternate="bicepimage" />
         <br></br>
