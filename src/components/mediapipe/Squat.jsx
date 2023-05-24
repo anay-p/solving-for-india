@@ -318,7 +318,7 @@ function Squat(props) {
   return (
     <div className="background">
       <div style={styles.selectBox}>
-        {/* <Link to="/"> */}
+        <Link to="/">
           <Button
             size="large"
             variant="contained"
@@ -333,14 +333,10 @@ function Squat(props) {
               backgroundColor: "#0000004d",
               border: "2px solid black",
             }}
-            onClick={()=>{
-              
-              window.location.replace('/').reload();
-            }}
           >
             Home
           </Button>
-        {/* </Link> */}
+        </Link>
         <h1>Workout</h1>
         <img src={imgSource} width="300" alternate="bicepimage" />
         <br></br>
