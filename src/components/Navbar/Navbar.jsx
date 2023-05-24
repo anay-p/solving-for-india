@@ -28,7 +28,7 @@ const NavbarComp = () => {
             <Nav className="navlinks">
               <Navbar.Brand className="linkText" href="/">
                 <img
-                  src="https://res.cloudinary.com/dhnkuonev/image/upload/v1680687009/Draft2-removebg-preview_mogobu.png"
+                  src="https://res.cloudinary.com/dhnkuonev/image/upload/v1684901314/Draft6_bqcn2p.png"
                   alt=""
                   className="heroicon"
                 />
@@ -63,7 +63,7 @@ const NavbarComp = () => {
             <Nav className="navlinks">
               <Navbar.Brand className="linkText" href="/">
                 <img
-                  src="https://res.cloudinary.com/dhnkuonev/image/upload/v1680687009/Draft2-removebg-preview_mogobu.png"
+                  src="https://res.cloudinary.com/dhnkuonev/image/upload/v1684901314/Draft6_bqcn2p.png"
                   alt=""
                   className="heroicon"
                 />
@@ -80,10 +80,14 @@ const NavbarComp = () => {
               <Nav.Link className="linkText" href="/dashboard">
                 Dashboard
               </Nav.Link>
-              <Button className="button3" variant="dark" onClick={() => {
-                signOut(auth);
-                navigate("/log-in");
-                }}>
+              <Button
+                className="button3"
+                variant="dark"
+                onClick={() => {
+                  signOut(auth);
+                  navigate("/");
+                }}
+              >
                 Log Out
               </Button>
             </Nav>

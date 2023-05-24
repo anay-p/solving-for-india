@@ -72,8 +72,7 @@ const Dashboard = () => {
       if (user) {
         setUid(user.uid);
         const docRef = doc(db, "users", user.uid);
-        getDoc(docRef)
-        .then((docSnap) => {
+        getDoc(docRef).then((docSnap) => {
           const userx = docSnap.data();
           setName(userx["name"]);
           setAge(userx["age"]);
@@ -81,27 +80,23 @@ const Dashboard = () => {
           setHeight(userx["height"]);
         });
         const unsub = onSnapshot(docRef, (docSnap) => {
-          const bodyFat = docSnap.get("body_fat")
+          const bodyFat = docSnap.get("body_fat");
           if (bodyFat) {
             setBodyFat(bodyFat);
             unsub();
           }
         });
       } else {
-        navigate("/log-in")
+        navigate("/log-in");
       }
     });
   }, []);
 
   const bodyFatLabel = () => {
     if (bodyFat) {
-      return (`Body Fat: ${parseFloat(bodyFat).toFixed(2)}%`);
+      return `Body Fat: ${parseFloat(bodyFat).toFixed(2)}%`;
     } else {
-      return (
-        <Link to="/additional-info">
-          Body Fat: -
-        </Link>
-      );
+      return <Link to="/additional-info">Body Fat: -</Link>;
     }
   };
 
@@ -128,7 +123,14 @@ const Dashboard = () => {
       <>
         <NavbarComp />
         <div className="sectioncontainer">
-          <h1 style={{ textDecoration: "underline" }}>Dashboard</h1>
+          <h1
+            style={{
+              textDecoration: "underline",
+              color: "#f6740a",
+            }}
+          >
+            Dashboard
+          </h1>
           <div class="main">
             <div
               className="sidebar"
@@ -138,7 +140,15 @@ const Dashboard = () => {
                 alignItems: "center",
               }}
             >
-              <h1 style={{ top: "0" }}>Profile</h1>
+              <h1
+                style={{
+                  top: "0",
+                  color: "#f6740a",
+                  textDecoration: "underline",
+                }}
+              >
+                Profile
+              </h1>
               <img
                 src="https://res.cloudinary.com/dhnkuonev/image/upload/v1679906502/11602236_21004063_c6g3he-removebg-preview_ntr0cu.png"
                 alt=""
@@ -156,125 +166,46 @@ const Dashboard = () => {
               <h3>{bodyFatLabel()}</h3>
             </div>
             <div className="dashboard">
-              <div className="headdash">
-                <div className="overview">
-                  <Card
-                    border="danger"
-                    style={{ width: "20rem", height: "22rem" }}
-                  >
-                    <Card.Header
-                      style={{
-                        fontSize: "20px",
-                        paddingTop: "5px",
-                        textAlign: "center",
-                        textDecoration: "underline",
-                      }}
-                    >
-                      Overview
-                    </Card.Header>
-                    <Card.Body>
-                      <Card.Text>
-                        <Doughnut data={data} options={options} />
-                      </Card.Text>
-                    </Card.Body>
-                  </Card>
-                </div>
-                <div className="activity">
-                  <Card
-                    border="danger"
-                    style={{ width: "22rem", height: "22rem" }}
-                  >
-                    <Card.Header
-                      style={{
-                        fontSize: "20px",
-                        paddingTop: "5px",
-                        textAlign: "center",
-                        textDecoration: "underline",
-                      }}
-                    >
-                      Today's Activity
-                    </Card.Header>
-                    <Card.Body className="dashbody">
-                      <Card.Text>
-                        <Button
-                          className="sets"
-                          variant="primary"
-                          style={{ width: "80px" }}
-                        >
-                          <h5>1.2 Hr</h5>
-                          <p>Per Day</p>
-                          <p>Gym</p>
-                        </Button>
-                        <Button
-                          className="sets"
-                          variant="danger"
-                          style={{ width: "80px" }}
-                        >
-                          <h5>5230</h5>
-                          <p>Sets</p>
-                          <p>Quads</p>
-                        </Button>
-                        <Button
-                          className="sets"
-                          variant="success"
-                          style={{ width: "80px" }}
-                        >
-                          <h5>1.4 Hr</h5>
-                          <p>Per Day</p>
-                          <p>Cardio</p>
-                        </Button>
-                      </Card.Text>
-                    </Card.Body>
-                  </Card>
-                </div>
-              </div>
-              <div className="workouts">
-                <Card border="danger" style={{}}>
+              <div className="Tracker">
+                <Card border="primary" style={{ width: "auto" }}>
                   <Card.Header
                     style={{
                       fontSize: "20px",
                       paddingTop: "5px",
                       textAlign: "center",
                       textDecoration: "underline",
-                      margin: "auto",
                     }}
                   >
-                    Recommended Activity
+                    Bicep Curls
                   </Card.Header>
-                  <Card.Body
-                    style={{ paddingTop: "2rem", textAlign: "center" }}
-                  >
-                    {/* <Card.Title></Card.Title> */}
-                    <Card.Text
-                      style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        gap: "20px",
-                      }}
-                    >
-                      <div className="recc">
-                        <h5>Squats</h5>
-                        <p>15 sets</p>
-                      </div>
-                      <div className="recc">
-                        <h5>Pushups</h5>
-                        <p>15 sets</p>
-                      </div>
-                      <div className="recc">
-                        <h5>Pullups</h5>
-                        <p>15 sets</p>
-                      </div>
-                      <div className="recc">
-                        <h5>Crunches</h5>
-                        <p>15 sets</p>
-                      </div>
+                  <Card.Body>
+                    <Card.Text>
+                      <Chart2 uid={uid} exercise="bicep_curls" />
                     </Card.Text>
                   </Card.Body>
                 </Card>
               </div>
-
               <div className="Tracker">
-                <Card border="primary" style={{ width: "40%" }}>
+                <Card border="primary" style={{ width: "auto" }}>
+                  <Card.Header
+                    style={{
+                      fontSize: "20px",
+                      paddingTop: "5px",
+                      textAlign: "center",
+                      textDecoration: "underline",
+                    }}
+                  >
+                    Squats
+                  </Card.Header>
+                  <Card.Body>
+                    <Card.Text>
+                      <Chart2 uid={uid} exercise="squats" />
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+              </div>
+              <div className="Tracker">
+                <Card border="primary" style={{ width: "auto" }}>
                   <Card.Header
                     style={{
                       fontSize: "20px",
@@ -286,13 +217,15 @@ const Dashboard = () => {
                     Push Ups
                   </Card.Header>
                   <Card.Body>
-                    {/* <Card.Title>Primary Card Title</Card.Title> */}
                     <Card.Text>
                       <Chart2 uid={uid} exercise="push_ups" />
                     </Card.Text>
                   </Card.Body>
                 </Card>
-                <Card border="primary" style={{ width: "40%" }}>
+              </div>
+
+              <div className="Tracker">
+                <Card border="primary" style={{ width: "auto" }}>
                   <Card.Header
                     style={{
                       fontSize: "20px",
@@ -301,12 +234,11 @@ const Dashboard = () => {
                       textDecoration: "underline",
                     }}
                   >
-                    Weight Gain/Loss
+                    Shoudler Press
                   </Card.Header>
                   <Card.Body>
-                    {/* <Card.Title>Primary Card Title</Card.Title> */}
                     <Card.Text>
-                      <Chartx />
+                      <Chart2 uid={uid} exercise="shoulder_presses" />
                     </Card.Text>
                   </Card.Body>
                 </Card>
